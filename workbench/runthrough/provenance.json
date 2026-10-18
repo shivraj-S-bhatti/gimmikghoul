@@ -1,0 +1,10 @@
+{
+  "revision": "a833737d8408322c8b1e821dee16af07b1fd9234",
+  "archiveSha256": "c255b7b1acc707b398a602f1ec071548ae40a9a9528eeac33cfe118fd985f971",
+  "sourceCount": 387,
+  "compiledCount": 387,
+  "sourceReceiptSha256": "ed289d39e383282b6cc4865b4fcd58ab8f17999ab37945c68b795a076b682b7a",
+  "compiledReceiptSha256": "c34f5f67a4f52c1289224c5ddd0e4212c9d7145ffb8f352a5ccff63cb459231b",
+  "result": "all source and compiled bytes match",
+  "method": "Independent archive extraction and in-memory esbuild; shared source/dist unchanged."
+}

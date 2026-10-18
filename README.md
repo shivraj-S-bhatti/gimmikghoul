@@ -1,0 +1,63 @@
+<p align="center"><img src="brand/gimmighoul-scientist-v2.png" width="220" alt="Gimmighoul scientist with coin spectacles, lab coat and clipboard"></p>
+
+# Gimmikghoul
+
+**Give a strange team idea somewhere to grow.**
+
+Gimmikghoul is a community experiment in agent-assisted Pokémon teambuilding. Bring an unusual core, a surprising interaction, or a team you cannot quite make work. Explore what enables it, which opponents matter, what it costs, and which alternative preserves the idea.
+
+The ambition is a shared reasoning canvas: people and agents build conditional plans, discover connections across mechanics and team reports, and choose the next useful question. A graph can show those relationships without reducing a team to one synergy score.
+
+[Explore the visual direction](visuals/README.md) · [Research lineage](research/CITATION_TREE.md) · [Current technical walkthrough](workbench/jit/BLOG.md) · [Contribute an idea](CONTRIBUTING.md)
+
+## Where we are
+
+The runnable starting point builds a FalkorDB graph around an attributed Alcremie / Mega Garchomp Z team, retrieves move candidates from a pinned Champions engine, and attaches selected native calculator results. A separate file-based theory loop preserves revisions and identifies stale receipts. These are useful pieces of the intended workbench; the full interactive theory system in the storyboards is proposed.
+
+The first experiment has not established a graph advantage, competitive win-rate improvement, or autonomous discovery. The next job is to find which representations actually help players and agents create better ideas. [Research agenda](research/AGENDA.md).
+
+## Try the current experiment
+
+Requires Node 22.18+ and, for the graph, Docker Compose. The catalog and examples are pinned to a September 2026 Champions snapshot; they do not follow today's regulation automatically.
+
+```sh
+npm ci
+npm test
+# Read recorded theory evidence without installing the game engine:
+node workbench/theory.mjs read data/theories/memento-staraptor/theory.json
+```
+
+For a fresh local installation:
+
+```sh
+docker compose --profile explore up -d --build --wait
+npm run prepare:data
+node workbench/tools/prepare-calculator.mjs
+# Step 1 clears ONLY the selected demo graph (default: gk_gimmikghoul).
+for step in 1 2 3 4 5 6; do npm run demo:jit -- "$step"; done
+node scripts/experiment-sprites.mjs gk_gimmikghoul
+```
+
+Open **http://localhost:4319**, choose `gk_gimmikghoul`, and explore:
+
+```cypher
+MATCH p=(:Mon)-[:CAN_LEARN]->(:Move)-[:ENABLES]->(:Mon) RETURN p
+```
+
+If the earlier Pokémon lab database is already running on ports 6388/4319, reuse it and skip Docker startup. This repo's new graph name keeps the existing `gk_jit` demonstration intact. Database and Browser ports bind to localhost, the DB stays writable, and Docker stores its data in a persistent volume. Do not run `down -v` unless you intend to erase that installation's data.
+
+[Six-step explanation](workbench/jit/README.md) · [Calculator adapters](workbench/tools/README.md) · [Agent connection](workbench/mcp/README.md) · [Revision example](data/theories/memento-staraptor/README.md)
+
+## Intended workbench
+
+![Intended reasoning fabric](visuals/intended-data-fabric.png)
+
+A mechanics layer describes what can happen. A temporal layer records which teams and ideas were observed, where, and under which rules. An idea layer connects goals to alternative routes, joint requirements, costs, and counterplay. Agents create temporary projections of that material; a player sees a small, legible map of the decision in front of them.
+
+We can build and use one useful loop at a time. See the [vision](docs/VISION.md) and [two storyboards](visuals/README.md).
+
+## Origins and credits
+
+This project grew out of [Pokémon battle lab](https://github.com/shivraj-S-bhatti/pokemon-battle-lab/tree/6e9aa7d76643d6af3974023d902a647db48a9502). The [import manifest](research/IMPORT_MANIFEST.md) records the starting revision and copied files. The demo attributes its seed team to London Faust, presented by Aaron Zheng. Its source locator is incomplete; finding the exact public video is an open contribution.
+
+We reuse Pokémon Showdown, Smogon's calculator and FalkorDB. Research references and executable dependencies are distinguished in the [citation tree](research/CITATION_TREE.md). Pokémon names and artwork belong to their respective owners; this is an independent fan research project. See [asset attribution](brand/ATTRIBUTION.md).

@@ -1,0 +1,24 @@
+{
+  "name": "gimmikghoul",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prepare:data": "node scripts/prepare.mjs",
+    "export:data": "node scripts/export.mjs",
+    "ingest": "node scripts/ingest.mjs",
+    "experiment": "node scripts/experiment.mjs",
+    "test": "node --test workbench/theory.test.mjs workbench/native-browser/*.test.mjs",
+    "demo:jit": "node workbench/jit/build-jit.mjs",
+    "theory": "node workbench/theory.mjs",
+    "visuals": "python3 -m http.server 4320 --bind 127.0.0.1"
+  },
+  "dependencies": {
+    "esbuild": "0.25.12",
+    "redis": "5.9.0",
+    "ts-chacha20": "1.2.0"
+  },
+  "description": "Agent-assisted Pokemon team theory exploration with conditional graphs and selected native checks",
+  "engines": {
+    "node": ">=22.18.0"
+  }
+}

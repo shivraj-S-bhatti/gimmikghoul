@@ -1,0 +1,27 @@
+{
+  "counts": {
+    "Snapshot": 1,
+    "Source": 3,
+    "RosterEntry": 262,
+    "Type": 19,
+    "Ability": 321,
+    "Item": 584,
+    "Move": 954,
+    "Species": 1417,
+    "Usage": 316
+  },
+  "edges": 151201,
+  "issues": [],
+  "omittedSentinels": {
+    "emptyMove": 303,
+    "noItem": 233
+  },
+  "sampleValidatedSpecies": 382,
+  "boundaries": [
+    "Catalog includes unavailable species/moves/items; query availability flags.",
+    "Official roster match is by national number, not exact form. Sample validator gate is community evidence.",
+    "LEARNS edges do not certify arbitrary multi-move sets; validate full candidate sets.",
+    "Usage marginals are not joint sets. Missing usage is unknown, not zero.",
+    "Callback-based mechanics remain source code, not a parsed causal model."
+  ]
+}

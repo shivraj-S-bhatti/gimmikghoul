@@ -1,0 +1,99 @@
+[
+  {
+    "id": "mudsdale",
+    "set": {
+      "species": "Mudsdale",
+      "ability": "Stamina",
+      "item": "Leftovers",
+      "moves": [
+        "Body Press",
+        "High Horsepower",
+        "Heavy Slam",
+        "Protect"
+      ],
+      "nature": "Impish",
+      "evs": {
+        "hp": 32,
+        "def": 32,
+        "spd": 2
+      }
+    }
+  },
+  {
+    "id": "maushold",
+    "set": {
+      "species": "Maushold",
+      "ability": "Friend Guard",
+      "item": "Sitrus Berry",
+      "moves": [
+        "Beat Up",
+        "Follow Me",
+        "Helping Hand",
+        "Protect"
+      ],
+      "nature": "Timid",
+      "evs": {
+        "hp": 32,
+        "def": 2,
+        "spe": 32
+      }
+    }
+  },
+  {
+    "id": "raichu-base-with-mega-stone",
+    "set": {
+      "species": "Raichu",
+      "ability": "Lightning Rod",
+      "item": "Raichunite Y",
+      "moves": [
+        "Zap Cannon",
+        "Focus Blast",
+        "Protect",
+        "Fake Out"
+      ],
+      "nature": "Modest",
+      "evs": {
+        "spa": 32,
+        "spe": 32,
+        "hp": 2
+      }
+    }
+  },
+  {
+    "id": "archaludon-bodypress-invalid",
+    "set": {
+      "species": "Archaludon",
+      "ability": "Stamina",
+      "moves": [
+        "Body Press"
+      ],
+      "nature": "Bold",
+      "evs": {
+        "hp": 32,
+        "def": 32,
+        "spd": 2
+      }
+    }
+  },
+  {
+    "id": "vanilla-format-refused",
+    "format": "gen9vgc2026regf",
+    "set": {
+      "species": "Mudsdale",
+      "ability": "Stamina",
+      "item": "Leftovers",
+      "moves": [
+        "Body Press",
+        "High Horsepower",
+        "Heavy Slam",
+        "Protect"
+      ],
+      "nature": "Impish",
+      "evs": {
+        "hp": 32,
+        "def": 32,
+        "spd": 2
+      }
+    }
+  }
+]

@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use Gimmikghoul, cite the repository and the exact commit used. Research references are in research/references.bib."
+title: "Gimmikghoul: agent-assisted Pokémon team theory exploration"
+type: software
+authors:
+  - name: "Shivraj S. Bhatti and Gimmikghoul contributors"
+repository-code: "https://github.com/shivraj-S-bhatti/gimmikghoul"
+url: "https://github.com/shivraj-S-bhatti/gimmikghoul"
+abstract: "An experimental workbench for exploring conditional Pokémon team ideas with graphs, source context and selected native checks."

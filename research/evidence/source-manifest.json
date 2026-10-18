@@ -1,0 +1,29 @@
+{
+  "revision": "a833737d8408322c8b1e821dee16af07b1fd9234",
+  "sources": [
+    {
+      "file": "showdown.tar.gz",
+      "url": "https://codeload.github.com/smogon/pokemon-showdown/tar.gz/a833737d8408322c8b1e821dee16af07b1fd9234",
+      "cached": false,
+      "inspectedAt": "2026-10-17T01:53:48.656Z",
+      "bytes": 6511402,
+      "sha256": "c255b7b1acc707b398a602f1ec071548ae40a9a9528eeac33cfe118fd985f971"
+    },
+    {
+      "file": "usage.json",
+      "url": "https://www.smogon.com/stats/2026-09/chaos/gen9championsvgc2026regmc-1500.json",
+      "cached": false,
+      "inspectedAt": "2026-10-17T01:53:51.355Z",
+      "bytes": 18706568,
+      "sha256": "cce52663ff63878ebb0fb696ef2b1e6218ff563438c79323fb0a8d12736d8cec"
+    },
+    {
+      "file": "official-roster.html",
+      "url": "https://web-view.app.pokemonchampions.jp/battle/pages/events/rs178955680104qaiodg/en/pokemon.html",
+      "cached": false,
+      "inspectedAt": "2026-10-17T01:53:51.476Z",
+      "bytes": 8557,
+      "sha256": "122529cebbc15cd2a22c781e0fb43ca814be86a18951f1ceaf37cf65297a3627"
+    }
+  ]
+}

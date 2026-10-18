@@ -1,0 +1,934 @@
+{
+  "origin": "imported_existing",
+  "source": "workbench/runthrough/check.cjs",
+  "sourceCommit": "eaf5838",
+  "engineRevision": "a833737d8408322c8b1e821dee16af07b1fd9234",
+  "format": "gen9championsvgc2026regmc",
+  "seed": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "scope": "Previously executed controlled opening; opponent uses Protect. Importing does not rerun or establish matchup viability.",
+  "records": [
+    {
+      "name": "memento-ally",
+      "format": "gen9championsvgc2026regmc",
+      "teams": {
+        "p1": [
+          {
+            "species": "Gholdengo",
+            "ability": "Good as Gold",
+            "moves": [
+              "Memento"
+            ],
+            "item": "",
+            "nature": "Timid",
+            "evs": {
+              "spa": 32,
+              "spe": 32,
+              "hp": 2,
+              "atk": 0,
+              "def": 0,
+              "spd": 0
+            },
+            "level": 50,
+            "name": "Gholdengo",
+            "ivs": {
+              "hp": 31,
+              "atk": 31,
+              "def": 31,
+              "spa": 31,
+              "spd": 31,
+              "spe": 31
+            }
+          },
+          {
+            "species": "Staraptor",
+            "ability": "Intimidate",
+            "moves": [
+              "Brave Bird",
+              "Protect"
+            ],
+            "item": "Staraptite",
+            "nature": "Jolly",
+            "evs": {
+              "atk": 32,
+              "spe": 32,
+              "hp": 2,
+              "def": 0,
+              "spa": 0,
+              "spd": 0
+            },
+            "level": 50,
+            "name": "Staraptor",
+            "ivs": {
+              "hp": 31,
+              "atk": 31,
+              "def": 31,
+              "spa": 31,
+              "spd": 31,
+              "spe": 31
+            }
+          },
+          {
+            "species": "Primarina",
+            "ability": "Torrent",
+            "moves": [
+              "Protect"
+            ],
+            "item": "",
+            "nature": "Hardy",
+            "evs": {
+              "hp": 2,
+              "atk": 0,
+              "def": 0,
+              "spe": 0,
+              "spa": 0,
+              "spd": 0
+            },
+            "level": 50,
+            "name": "Primarina",
+            "ivs": {
+              "hp": 31,
+              "atk": 31,
+              "def": 31,
+              "spa": 31,
+              "spd": 31,
+              "spe": 31
+            }
+          },
+          {
+            "species": "Tyranitar",
+            "ability": "Sand Stream",
+            "moves": [
+              "Protect"
+            ],
+            "item": "",
+            "nature": "Hardy",
+            "evs": {
+              "hp": 2,
+              "atk": 0,
+              "def": 0,
+              "spe": 0,
+              "spa": 0,
+              "spd": 0
+            },
+            "level": 50,
+            "name": "Tyranitar",
+            "ivs": {
+              "hp": 31,
+              "atk": 31,
+              "def": 31,
+              "spa": 31,
+              "spd": 31,
+              "spe": 31
+            }
+          },
+          {
+            "species": "Lucario",
+            "ability": "Inner Focus",
+            "moves": [
+              "Protect"
+            ],
+            "item": "",
+            "nature": "Hardy",
+            "evs": {
+              "hp": 2,
+              "atk": 0,
+              "def": 0,
+              "spe": 0,
+              "spa": 0,
+              "spd": 0
+            },
+            "level": 50,
+            "name": "Lucario",
+            "ivs": {
+              "hp": 31,
+              "atk": 31,
+              "def": 31,
+              "spa": 31,
+              "spd": 31,
+              "spe": 31
+            }
+          },
+          {
+            "species": "Milotic",
+            "ability": "Competitive",
+            "moves": [
+              "Protect"
+            ],
+            "item": "",
+            "nature": "Hardy",
+            "evs": {
+              "hp": 2,
+              "atk": 0,
+              "def": 0,
+              "spe": 0,
+              "spa": 0,
+              "spd": 0
+            },
+            "level": 50,
+            "name": "Milotic",
+            "ivs": {
+              "hp": 31,
+              "atk": 31,
+              "def": 31,
+              "spa": 31,
+              "spd": 31,
+              "spe": 31
+            }
+          }
+        ],
+        "p2": [
+          {
+            "species": "Rillaboom",
+            "ability": "Grassy Surge",
+            "moves": [
+              "Fake Out",
+              "Protect"
+            ],
+            "item": "",
+            "nature": "Hardy",
+            "evs": {
+              "hp": 2,
+              "atk": 0,
+              "def": 0,
+              "spe": 0,
+              "spa": 0,
+              "spd": 0
+            },
+            "level": 50,
+            "name": "Rillaboom",
+            "ivs": {
+              "hp": 31,
+              "atk": 31,
+              "def": 31,
+              "spa": 31,
+              "spd": 31,
+              "spe": 31
+            }
+          },
+          {
+            "species": "Garchomp",
+            "ability": "Rough Skin",
+            "moves": [
+              "Protect"
+            ],
+            "item": "",
+            "nature": "Hardy",
+            "evs": {
+              "hp": 2,
+              "atk": 0,
+              "def": 0,
+              "spe": 0,
+              "spa": 0,
+              "spd": 0
+            },
+            "level": 50,
+            "name": "Garchomp",
+            "ivs": {
+              "hp": 31,
+              "atk": 31,
+              "def": 31,
+              "spa": 31,
+              "spd": 31,
+              "spe": 31
+            }
+          },
+          {
+            "species": "Primarina",
+            "ability": "Torrent",
+            "moves": [
+              "Protect"
+            ],
+            "item": "",
+            "nature": "Hardy",
+            "evs": {
+              "hp": 2,
+              "atk": 0,
+              "def": 0,
+              "spe": 0,
+              "spa": 0,
+              "spd": 0
+            },
+            "level": 50,
+            "name": "Primarina",
+            "ivs": {
+              "hp": 31,
+              "atk": 31,
+              "def": 31,
+              "spa": 31,
+              "spd": 31,
+              "spe": 31
+            }
+          },
+          {
+            "species": "Tyranitar",
+            "ability": "Sand Stream",
+            "moves": [
+              "Protect"
+            ],
+            "item": "",
+            "nature": "Hardy",
+            "evs": {
+              "hp": 2,
+              "atk": 0,
+              "def": 0,
+              "spe": 0,
+              "spa": 0,
+              "spd": 0
+            },
+            "level": 50,
+            "name": "Tyranitar",
+            "ivs": {
+              "hp": 31,
+              "atk": 31,
+              "def": 31,
+              "spa": 31,
+              "spd": 31,
+              "spe": 31
+            }
+          },
+          {
+            "species": "Lucario",
+            "ability": "Inner Focus",
+            "moves": [
+              "Protect"
+            ],
+            "item": "",
+            "nature": "Hardy",
+            "evs": {
+              "hp": 2,
+              "atk": 0,
+              "def": 0,
+              "spe": 0,
+              "spa": 0,
+              "spd": 0
+            },
+            "level": 50,
+            "name": "Lucario",
+            "ivs": {
+              "hp": 31,
+              "atk": 31,
+              "def": 31,
+              "spa": 31,
+              "spd": 31,
+              "spe": 31
+            }
+          },
+          {
+            "species": "Milotic",
+            "ability": "Competitive",
+            "moves": [
+              "Protect"
+            ],
+            "item": "",
+            "nature": "Hardy",
+            "evs": {
+              "hp": 2,
+              "atk": 0,
+              "def": 0,
+              "spe": 0,
+              "spa": 0,
+              "spd": 0
+            },
+            "level": 50,
+            "name": "Milotic",
+            "ivs": {
+              "hp": 31,
+              "atk": 31,
+              "def": 31,
+              "spa": 31,
+              "spd": 31,
+              "spe": 31
+            }
+          }
+        ]
+      },
+      "validation": [
+        null,
+        null
+      ],
+      "initialSpeeds": [
+        {
+          "name": "Gholdengo",
+          "speed": 149
+        },
+        {
+          "name": "Staraptor",
+          "speed": 167
+        }
+      ],
+      "requestState": "switch",
+      "active": [
+        {
+          "name": "Gholdengo",
+          "species": "Gholdengo",
+          "hp": 0,
+          "ability": "goodasgold",
+          "boosts": {
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0,
+            "accuracy": 0,
+            "evasion": 0
+          },
+          "canMegaEvo": false
+        },
+        {
+          "name": "Staraptor",
+          "species": "Staraptor-Mega",
+          "hp": 162,
+          "ability": "contrary",
+          "boosts": {
+            "atk": 2,
+            "def": 0,
+            "spa": 2,
+            "spd": 0,
+            "spe": 0,
+            "accuracy": 0,
+            "evasion": 0
+          },
+          "canMegaEvo": false
+        }
+      ],
+      "log": [
+        "|t:|1792341890",
+        "|gametype|doubles",
+        "|player|p1|Plan||",
+        "|player|p2|Opponent||",
+        "|gen|9",
+        "|tier|[Gen 9 Champions] VGC 2026 Reg M-C",
+        "|rule|Species Clause: Limit one of each Pokémon",
+        "|rule|Item Clause: Limit 1 of each item",
+        "|clearpoke",
+        "|poke|p1|Gholdengo, L50|",
+        "|poke|p1|Staraptor, L50, M|",
+        "|poke|p1|Primarina, L50, F|",
+        "|poke|p1|Tyranitar, L50, F|",
+        "|poke|p1|Lucario, L50, M|",
+        "|poke|p1|Milotic, L50, F|",
+        "|poke|p2|Rillaboom, L50, F|",
+        "|poke|p2|Garchomp, L50, F|",
+        "|poke|p2|Primarina, L50, M|",
+        "|poke|p2|Tyranitar, L50, F|",
+        "|poke|p2|Lucario, L50, F|",
+        "|poke|p2|Milotic, L50, M|",
+        "|teampreview|4",
+        "|split|p1",
+        "|uhtml|otsrequest|<button name=\"send\" value=\"/acceptopenteamsheets\" class=\"button\" style=\"margin-right: 10px;\"><strong>Accept Open Team Sheets</strong></button><button name=\"send\" value=\"/rejectopenteamsheets\" class=\"button\" style=\"margin-top: 10px\"><strong>Deny Open Team Sheets</strong></button>",
+        "",
+        "|split|p2",
+        "|uhtml|otsrequest|<button name=\"send\" value=\"/acceptopenteamsheets\" class=\"button\" style=\"margin-right: 10px;\"><strong>Accept Open Team Sheets</strong></button><button name=\"send\" value=\"/rejectopenteamsheets\" class=\"button\" style=\"margin-top: 10px\"><strong>Deny Open Team Sheets</strong></button>",
+        "",
+        "|",
+        "|t:|1792341890",
+        "|teamsize|p1|4",
+        "|teamsize|p2|4",
+        "|start",
+        "|split|p1",
+        "|uhtmlchange|otsrequest|",
+        "",
+        "|split|p2",
+        "|uhtmlchange|otsrequest|",
+        "",
+        "|split|p1",
+        "|switch|p1a: Gholdengo|Gholdengo, L50|164/164",
+        "|switch|p1a: Gholdengo|Gholdengo, L50|100/100",
+        "|split|p1",
+        "|switch|p1b: Staraptor|Staraptor, L50, M|162/162",
+        "|switch|p1b: Staraptor|Staraptor, L50, M|100/100",
+        "|split|p2",
+        "|switch|p2a: Rillaboom|Rillaboom, L50, F|177/177",
+        "|switch|p2a: Rillaboom|Rillaboom, L50, F|100/100",
+        "|split|p2",
+        "|switch|p2b: Garchomp|Garchomp, L50, F|185/185",
+        "|switch|p2b: Garchomp|Garchomp, L50, F|100/100",
+        "|-ability|p1b: Staraptor|Intimidate|boost",
+        "|-unboost|p2a: Rillaboom|atk|1",
+        "|-unboost|p2b: Garchomp|atk|1",
+        "|-fieldstart|move: Grassy Terrain|[from] ability: Grassy Surge|[of] p2a: Rillaboom",
+        "|turn|1",
+        "|",
+        "|t:|1792341890",
+        "|detailschange|p1b: Staraptor|Staraptor-Mega, L50, M",
+        "|-mega|p1b: Staraptor|Staraptor|Staraptite",
+        "|move|p2b: Garchomp|Protect|p2b: Garchomp",
+        "|-singleturn|p2b: Garchomp|Protect",
+        "|move|p2a: Rillaboom|Protect|p2a: Rillaboom",
+        "|-singleturn|p2a: Rillaboom|Protect",
+        "|move|p1b: Staraptor|Brave Bird|p2b: Garchomp",
+        "|-activate|p2b: Garchomp|move: Protect",
+        "|move|p1a: Gholdengo|Memento|p1b: Staraptor",
+        "|-boost|p1b: Staraptor|atk|2",
+        "|-boost|p1b: Staraptor|spa|2",
+        "|faint|p1a: Gholdengo",
+        "|",
+        "|upkeep"
+      ]
+    },
+    {
+      "name": "scarf-memento-before-attack",
+      "format": "gen9championsvgc2026regmc",
+      "teams": {
+        "p1": [
+          {
+            "species": "Gholdengo",
+            "ability": "Good as Gold",
+            "moves": [
+              "Memento"
+            ],
+            "item": "Choice Scarf",
+            "nature": "Timid",
+            "evs": {
+              "spa": 32,
+              "spe": 32,
+              "hp": 2,
+              "atk": 0,
+              "def": 0,
+              "spd": 0
+            },
+            "level": 50,
+            "name": "Gholdengo",
+            "ivs": {
+              "hp": 31,
+              "atk": 31,
+              "def": 31,
+              "spa": 31,
+              "spd": 31,
+              "spe": 31
+            }
+          },
+          {
+            "species": "Staraptor",
+            "ability": "Intimidate",
+            "moves": [
+              "Brave Bird",
+              "Protect"
+            ],
+            "item": "Staraptite",
+            "nature": "Jolly",
+            "evs": {
+              "atk": 32,
+              "spe": 32,
+              "hp": 2,
+              "def": 0,
+              "spa": 0,
+              "spd": 0
+            },
+            "level": 50,
+            "name": "Staraptor",
+            "ivs": {
+              "hp": 31,
+              "atk": 31,
+              "def": 31,
+              "spa": 31,
+              "spd": 31,
+              "spe": 31
+            }
+          },
+          {
+            "species": "Primarina",
+            "ability": "Torrent",
+            "moves": [
+              "Protect"
+            ],
+            "item": "",
+            "nature": "Hardy",
+            "evs": {
+              "hp": 2,
+              "atk": 0,
+              "def": 0,
+              "spe": 0,
+              "spa": 0,
+              "spd": 0
+            },
+            "level": 50,
+            "name": "Primarina",
+            "ivs": {
+              "hp": 31,
+              "atk": 31,
+              "def": 31,
+              "spa": 31,
+              "spd": 31,
+              "spe": 31
+            }
+          },
+          {
+            "species": "Tyranitar",
+            "ability": "Sand Stream",
+            "moves": [
+              "Protect"
+            ],
+            "item": "",
+            "nature": "Hardy",
+            "evs": {
+              "hp": 2,
+              "atk": 0,
+              "def": 0,
+              "spe": 0,
+              "spa": 0,
+              "spd": 0
+            },
+            "level": 50,
+            "name": "Tyranitar",
+            "ivs": {
+              "hp": 31,
+              "atk": 31,
+              "def": 31,
+              "spa": 31,
+              "spd": 31,
+              "spe": 31
+            }
+          },
+          {
+            "species": "Lucario",
+            "ability": "Inner Focus",
+            "moves": [
+              "Protect"
+            ],
+            "item": "",
+            "nature": "Hardy",
+            "evs": {
+              "hp": 2,
+              "atk": 0,
+              "def": 0,
+              "spe": 0,
+              "spa": 0,
+              "spd": 0
+            },
+            "level": 50,
+            "name": "Lucario",
+            "ivs": {
+              "hp": 31,
+              "atk": 31,
+              "def": 31,
+              "spa": 31,
+              "spd": 31,
+              "spe": 31
+            }
+          },
+          {
+            "species": "Milotic",
+            "ability": "Competitive",
+            "moves": [
+              "Protect"
+            ],
+            "item": "",
+            "nature": "Hardy",
+            "evs": {
+              "hp": 2,
+              "atk": 0,
+              "def": 0,
+              "spe": 0,
+              "spa": 0,
+              "spd": 0
+            },
+            "level": 50,
+            "name": "Milotic",
+            "ivs": {
+              "hp": 31,
+              "atk": 31,
+              "def": 31,
+              "spa": 31,
+              "spd": 31,
+              "spe": 31
+            }
+          }
+        ],
+        "p2": [
+          {
+            "species": "Rillaboom",
+            "ability": "Grassy Surge",
+            "moves": [
+              "Fake Out",
+              "Protect"
+            ],
+            "item": "",
+            "nature": "Hardy",
+            "evs": {
+              "hp": 2,
+              "atk": 0,
+              "def": 0,
+              "spe": 0,
+              "spa": 0,
+              "spd": 0
+            },
+            "level": 50,
+            "name": "Rillaboom",
+            "ivs": {
+              "hp": 31,
+              "atk": 31,
+              "def": 31,
+              "spa": 31,
+              "spd": 31,
+              "spe": 31
+            }
+          },
+          {
+            "species": "Garchomp",
+            "ability": "Rough Skin",
+            "moves": [
+              "Protect"
+            ],
+            "item": "",
+            "nature": "Hardy",
+            "evs": {
+              "hp": 2,
+              "atk": 0,
+              "def": 0,
+              "spe": 0,
+              "spa": 0,
+              "spd": 0
+            },
+            "level": 50,
+            "name": "Garchomp",
+            "ivs": {
+              "hp": 31,
+              "atk": 31,
+              "def": 31,
+              "spa": 31,
+              "spd": 31,
+              "spe": 31
+            }
+          },
+          {
+            "species": "Primarina",
+            "ability": "Torrent",
+            "moves": [
+              "Protect"
+            ],
+            "item": "",
+            "nature": "Hardy",
+            "evs": {
+              "hp": 2,
+              "atk": 0,
+              "def": 0,
+              "spe": 0,
+              "spa": 0,
+              "spd": 0
+            },
+            "level": 50,
+            "name": "Primarina",
+            "ivs": {
+              "hp": 31,
+              "atk": 31,
+              "def": 31,
+              "spa": 31,
+              "spd": 31,
+              "spe": 31
+            }
+          },
+          {
+            "species": "Tyranitar",
+            "ability": "Sand Stream",
+            "moves": [
+              "Protect"
+            ],
+            "item": "",
+            "nature": "Hardy",
+            "evs": {
+              "hp": 2,
+              "atk": 0,
+              "def": 0,
+              "spe": 0,
+              "spa": 0,
+              "spd": 0
+            },
+            "level": 50,
+            "name": "Tyranitar",
+            "ivs": {
+              "hp": 31,
+              "atk": 31,
+              "def": 31,
+              "spa": 31,
+              "spd": 31,
+              "spe": 31
+            }
+          },
+          {
+            "species": "Lucario",
+            "ability": "Inner Focus",
+            "moves": [
+              "Protect"
+            ],
+            "item": "",
+            "nature": "Hardy",
+            "evs": {
+              "hp": 2,
+              "atk": 0,
+              "def": 0,
+              "spe": 0,
+              "spa": 0,
+              "spd": 0
+            },
+            "level": 50,
+            "name": "Lucario",
+            "ivs": {
+              "hp": 31,
+              "atk": 31,
+              "def": 31,
+              "spa": 31,
+              "spd": 31,
+              "spe": 31
+            }
+          },
+          {
+            "species": "Milotic",
+            "ability": "Competitive",
+            "moves": [
+              "Protect"
+            ],
+            "item": "",
+            "nature": "Hardy",
+            "evs": {
+              "hp": 2,
+              "atk": 0,
+              "def": 0,
+              "spe": 0,
+              "spa": 0,
+              "spd": 0
+            },
+            "level": 50,
+            "name": "Milotic",
+            "ivs": {
+              "hp": 31,
+              "atk": 31,
+              "def": 31,
+              "spa": 31,
+              "spd": 31,
+              "spe": 31
+            }
+          }
+        ]
+      },
+      "validation": [
+        null,
+        null
+      ],
+      "initialSpeeds": [
+        {
+          "name": "Gholdengo",
+          "speed": 223
+        },
+        {
+          "name": "Staraptor",
+          "speed": 167
+        }
+      ],
+      "requestState": "switch",
+      "active": [
+        {
+          "name": "Gholdengo",
+          "species": "Gholdengo",
+          "hp": 0,
+          "ability": "goodasgold",
+          "boosts": {
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0,
+            "accuracy": 0,
+            "evasion": 0
+          },
+          "canMegaEvo": false
+        },
+        {
+          "name": "Staraptor",
+          "species": "Staraptor-Mega",
+          "hp": 162,
+          "ability": "contrary",
+          "boosts": {
+            "atk": 2,
+            "def": 0,
+            "spa": 2,
+            "spd": 0,
+            "spe": 0,
+            "accuracy": 0,
+            "evasion": 0
+          },
+          "canMegaEvo": false
+        }
+      ],
+      "log": [
+        "|t:|1792341890",
+        "|gametype|doubles",
+        "|player|p1|Plan||",
+        "|player|p2|Opponent||",
+        "|gen|9",
+        "|tier|[Gen 9 Champions] VGC 2026 Reg M-C",
+        "|rule|Species Clause: Limit one of each Pokémon",
+        "|rule|Item Clause: Limit 1 of each item",
+        "|clearpoke",
+        "|poke|p1|Gholdengo, L50|",
+        "|poke|p1|Staraptor, L50, M|",
+        "|poke|p1|Primarina, L50, F|",
+        "|poke|p1|Tyranitar, L50, F|",
+        "|poke|p1|Lucario, L50, M|",
+        "|poke|p1|Milotic, L50, F|",
+        "|poke|p2|Rillaboom, L50, F|",
+        "|poke|p2|Garchomp, L50, F|",
+        "|poke|p2|Primarina, L50, M|",
+        "|poke|p2|Tyranitar, L50, F|",
+        "|poke|p2|Lucario, L50, F|",
+        "|poke|p2|Milotic, L50, M|",
+        "|teampreview|4",
+        "|split|p1",
+        "|uhtml|otsrequest|<button name=\"send\" value=\"/acceptopenteamsheets\" class=\"button\" style=\"margin-right: 10px;\"><strong>Accept Open Team Sheets</strong></button><button name=\"send\" value=\"/rejectopenteamsheets\" class=\"button\" style=\"margin-top: 10px\"><strong>Deny Open Team Sheets</strong></button>",
+        "",
+        "|split|p2",
+        "|uhtml|otsrequest|<button name=\"send\" value=\"/acceptopenteamsheets\" class=\"button\" style=\"margin-right: 10px;\"><strong>Accept Open Team Sheets</strong></button><button name=\"send\" value=\"/rejectopenteamsheets\" class=\"button\" style=\"margin-top: 10px\"><strong>Deny Open Team Sheets</strong></button>",
+        "",
+        "|",
+        "|t:|1792341890",
+        "|teamsize|p1|4",
+        "|teamsize|p2|4",
+        "|start",
+        "|split|p1",
+        "|uhtmlchange|otsrequest|",
+        "",
+        "|split|p2",
+        "|uhtmlchange|otsrequest|",
+        "",
+        "|split|p1",
+        "|switch|p1a: Gholdengo|Gholdengo, L50|164/164",
+        "|switch|p1a: Gholdengo|Gholdengo, L50|100/100",
+        "|split|p1",
+        "|switch|p1b: Staraptor|Staraptor, L50, M|162/162",
+        "|switch|p1b: Staraptor|Staraptor, L50, M|100/100",
+        "|split|p2",
+        "|switch|p2a: Rillaboom|Rillaboom, L50, F|177/177",
+        "|switch|p2a: Rillaboom|Rillaboom, L50, F|100/100",
+        "|split|p2",
+        "|switch|p2b: Garchomp|Garchomp, L50, F|185/185",
+        "|switch|p2b: Garchomp|Garchomp, L50, F|100/100",
+        "|-ability|p1b: Staraptor|Intimidate|boost",
+        "|-unboost|p2a: Rillaboom|atk|1",
+        "|-unboost|p2b: Garchomp|atk|1",
+        "|-fieldstart|move: Grassy Terrain|[from] ability: Grassy Surge|[of] p2a: Rillaboom",
+        "|turn|1",
+        "|",
+        "|t:|1792341890",
+        "|detailschange|p1b: Staraptor|Staraptor-Mega, L50, M",
+        "|-mega|p1b: Staraptor|Staraptor|Staraptite",
+        "|move|p2b: Garchomp|Protect|p2b: Garchomp",
+        "|-singleturn|p2b: Garchomp|Protect",
+        "|move|p2a: Rillaboom|Protect|p2a: Rillaboom",
+        "|-singleturn|p2a: Rillaboom|Protect",
+        "|move|p1a: Gholdengo|Memento|p1b: Staraptor",
+        "|-boost|p1b: Staraptor|atk|2",
+        "|-boost|p1b: Staraptor|spa|2",
+        "|faint|p1a: Gholdengo",
+        "|move|p1b: Staraptor|Brave Bird|p2b: Garchomp",
+        "|-activate|p2b: Garchomp|move: Protect",
+        "|",
+        "|upkeep"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+MATCH (a:Species)-[:LEARNS]->(:Move {id:'Move:simplebeam'}), (b:Species)-[:LEARNS]->(:Move {id:'Move:shellsmash'}), (ua:Usage)-[:OBSERVED_FOR]->(a), (ub:Usage)-[:OBSERVED_FOR]->(b) WHERE a.sampleSetValidated = true AND b.sampleSetValidated = true AND a.nationalNumber <> b.nationalNumber AND ua.usage < 0.01 AND ub.usage < 0.01 RETURN DISTINCT a.name,b.name

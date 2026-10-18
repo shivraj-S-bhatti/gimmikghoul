@@ -1,0 +1,198 @@
+[
+  {
+    "id": "base",
+    "format": "gen9championsvgc2026regmc",
+    "attacker": {
+      "species": "Rillaboom",
+      "level": 50,
+      "ability": "grassysurge",
+      "item": "miracleseed",
+      "moves": [
+        "grassyglide",
+        "fakeout",
+        "woodhammer",
+        "uturn"
+      ],
+      "nature": "Jolly",
+      "evs": {
+        "hp": 2,
+        "atk": 32,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 32
+      },
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      }
+    },
+    "defender": {
+      "species": "Primarina",
+      "level": 50,
+      "ability": "liquidvoice",
+      "item": "lifeorb",
+      "moves": [
+        "hypervoice",
+        "protect",
+        "moonblast",
+        "calmmind"
+      ],
+      "nature": "Modest",
+      "evs": {
+        "hp": 32,
+        "atk": 0,
+        "def": 0,
+        "spa": 32,
+        "spd": 2,
+        "spe": 0
+      },
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      }
+    },
+    "move": "woodhammer"
+  },
+  {
+    "id": "mega",
+    "format": "gen9championsvgc2026regmc",
+    "attacker": {
+      "species": "Salamence-Mega",
+      "level": 50,
+      "ability": "aerilate",
+      "item": "salamencite",
+      "moves": [
+        "protect",
+        "hypervoice",
+        "tailwind",
+        "dracometeor"
+      ],
+      "nature": "Timid",
+      "evs": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "spa": 32,
+        "spd": 0,
+        "spe": 32
+      },
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      }
+    },
+    "defender": {
+      "species": "Rillaboom",
+      "level": 50,
+      "ability": "grassysurge",
+      "item": "miracleseed",
+      "moves": [
+        "grassyglide",
+        "fakeout",
+        "woodhammer",
+        "uturn"
+      ],
+      "nature": "Jolly",
+      "evs": {
+        "hp": 2,
+        "atk": 32,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 32
+      },
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      }
+    },
+    "move": "hypervoice"
+  },
+  {
+    "id": "mega-field",
+    "format": "gen9championsvgc2026regmc",
+    "attacker": {
+      "species": "Salamence-Mega",
+      "level": 50,
+      "ability": "aerilate",
+      "item": "salamencite",
+      "moves": [
+        "protect",
+        "hypervoice",
+        "tailwind",
+        "dracometeor"
+      ],
+      "nature": "Timid",
+      "evs": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "spa": 32,
+        "spd": 0,
+        "spe": 32
+      },
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      }
+    },
+    "defender": {
+      "species": "Rillaboom",
+      "level": 50,
+      "ability": "grassysurge",
+      "item": "miracleseed",
+      "moves": [
+        "grassyglide",
+        "fakeout",
+        "woodhammer",
+        "uturn"
+      ],
+      "nature": "Jolly",
+      "evs": {
+        "hp": 2,
+        "atk": 32,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 32
+      },
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      }
+    },
+    "move": "hypervoice",
+    "field": {
+      "weather": "Rain",
+      "defenderSide": {
+        "isLightScreen": true,
+        "isFriendGuard": true
+      }
+    }
+  }
+]

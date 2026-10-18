@@ -1,0 +1,77 @@
+{
+  "claimId": "boosted-garchomp-threshold",
+  "question": "Does +2 Brave Bird reach the selected Garchomp OHKO threshold on a neutral field?",
+  "decision": "Whether this selected threshold warrants investigating the donor cost and an earlier Memento opening. No target or concession has been chosen by the user yet.",
+  "checker": "damage",
+  "input": {
+    "format": "gen9championsvgc2026regmc",
+    "attacker": {
+      "set": {
+        "species": "Staraptor-Mega",
+        "level": 50,
+        "ability": "contrary",
+        "item": "staraptite",
+        "moves": [
+          "closecombat",
+          "protect",
+          "bravebird",
+          "tailwind"
+        ],
+        "nature": "Jolly",
+        "evs": {
+          "hp": 2,
+          "atk": 32,
+          "def": 0,
+          "spa": 0,
+          "spd": 0,
+          "spe": 32
+        },
+        "ivs": {
+          "hp": 31,
+          "atk": 31,
+          "def": 31,
+          "spa": 31,
+          "spd": 31,
+          "spe": 31
+        },
+        "canonicalSpecies": "Staraptor-Mega"
+      },
+      "state": {
+        "boosts": {
+          "atk": 2
+        }
+      }
+    },
+    "defender": {
+      "species": "Garchomp",
+      "level": 50,
+      "ability": "roughskin",
+      "item": "lifeorb",
+      "moves": [
+        "dragonclaw",
+        "rockslide",
+        "earthquake",
+        "protect"
+      ],
+      "nature": "Jolly",
+      "evs": {
+        "hp": 2,
+        "atk": 32,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 32
+      },
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      }
+    },
+    "move": "Brave Bird",
+    "field": {}
+  }
+}

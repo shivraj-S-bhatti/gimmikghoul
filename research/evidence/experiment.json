@@ -1,0 +1,271 @@
+{
+  "date": "2026-10-17T01:57:48.906Z",
+  "graph": "pokemon_mc_202609",
+  "format": "gen9championsvgc2026regmc",
+  "baselineSetupMs": 17.738667000000078,
+  "results": [
+    {
+      "id": "simple-beam",
+      "parity": true,
+      "count": 4,
+      "graphMedianMs": 7.9485839999999826,
+      "plainMedianMs": 0.2605829999999969,
+      "positiveChecks": [
+        [
+          "Farfetch’d"
+        ]
+      ],
+      "negativeChecks": [],
+      "rows": [
+        [
+          "Audino-Mega"
+        ],
+        [
+          "Audino"
+        ],
+        [
+          "Farfetch’d"
+        ],
+        [
+          "Sirfetch’d"
+        ]
+      ]
+    },
+    {
+      "id": "shell-smash",
+      "parity": true,
+      "count": 8,
+      "graphMedianMs": 10.787416000000007,
+      "plainMedianMs": 0.29883299999994506,
+      "positiveChecks": [
+        [
+          "Torterra"
+        ]
+      ],
+      "negativeChecks": [
+        [
+          "Farfetch’d"
+        ]
+      ],
+      "rows": [
+        [
+          "Barbaracle-Mega"
+        ],
+        [
+          "Barbaracle"
+        ],
+        [
+          "Blastoise-Mega"
+        ],
+        [
+          "Blastoise"
+        ],
+        [
+          "Polteageist-Antique"
+        ],
+        [
+          "Polteageist"
+        ],
+        [
+          "Torkoal"
+        ],
+        [
+          "Torterra"
+        ]
+      ]
+    },
+    {
+      "id": "body-press-ice-beam",
+      "parity": true,
+      "count": 33,
+      "graphMedianMs": 12.164166999999907,
+      "plainMedianMs": 0.3199170000000322,
+      "positiveChecks": [
+        [
+          "Swalot"
+        ]
+      ],
+      "negativeChecks": [],
+      "rows": [
+        [
+          "Abomasnow-Mega"
+        ],
+        [
+          "Abomasnow"
+        ],
+        [
+          "Aggron-Mega"
+        ],
+        [
+          "Aggron"
+        ],
+        [
+          "Avalugg-Hisui"
+        ],
+        [
+          "Avalugg"
+        ],
+        [
+          "Bastiodon"
+        ],
+        [
+          "Baxcalibur-Mega"
+        ],
+        [
+          "Baxcalibur"
+        ],
+        [
+          "Beartic"
+        ],
+        [
+          "Blastoise-Mega"
+        ],
+        [
+          "Blastoise"
+        ],
+        [
+          "Crabominable-Mega"
+        ],
+        [
+          "Crabominable"
+        ],
+        [
+          "Dragonite-Mega"
+        ],
+        [
+          "Dragonite"
+        ],
+        [
+          "Golurk-Mega"
+        ],
+        [
+          "Golurk"
+        ],
+        [
+          "Goodra-Hisui"
+        ],
+        [
+          "Goodra"
+        ],
+        [
+          "Mamoswine"
+        ],
+        [
+          "Rampardos"
+        ],
+        [
+          "Rhyperior"
+        ],
+        [
+          "Slowbro-Galar"
+        ],
+        [
+          "Slowbro-Mega"
+        ],
+        [
+          "Slowbro"
+        ],
+        [
+          "Snorlax"
+        ],
+        [
+          "Swalot"
+        ],
+        [
+          "Swampert-Mega"
+        ],
+        [
+          "Swampert"
+        ],
+        [
+          "Tyranitar-Mega"
+        ],
+        [
+          "Tyranitar"
+        ],
+        [
+          "Wigglytuff"
+        ]
+      ]
+    },
+    {
+      "id": "intimidate-glare",
+      "parity": true,
+      "count": 1,
+      "graphMedianMs": 4.50283300000001,
+      "plainMedianMs": 0.22624999999993634,
+      "positiveChecks": [
+        [
+          "Arbok"
+        ]
+      ],
+      "negativeChecks": [],
+      "rows": [
+        [
+          "Arbok"
+        ]
+      ]
+    },
+    {
+      "id": "rare-beam-smash-pairs",
+      "parity": true,
+      "count": 12,
+      "graphMedianMs": 58.74549999999999,
+      "plainMedianMs": 0.49545899999998255,
+      "positiveChecks": [],
+      "negativeChecks": [],
+      "rows": [
+        [
+          "Audino-Mega",
+          "Barbaracle-Mega"
+        ],
+        [
+          "Audino-Mega",
+          "Blastoise"
+        ],
+        [
+          "Audino-Mega",
+          "Polteageist"
+        ],
+        [
+          "Audino-Mega",
+          "Torterra"
+        ],
+        [
+          "Audino",
+          "Barbaracle-Mega"
+        ],
+        [
+          "Audino",
+          "Blastoise"
+        ],
+        [
+          "Audino",
+          "Polteageist"
+        ],
+        [
+          "Audino",
+          "Torterra"
+        ],
+        [
+          "Farfetch’d",
+          "Barbaracle-Mega"
+        ],
+        [
+          "Farfetch’d",
+          "Blastoise"
+        ],
+        [
+          "Farfetch’d",
+          "Polteageist"
+        ],
+        [
+          "Farfetch’d",
+          "Torterra"
+        ]
+      ]
+    }
+  ],
+  "interpretation": "Five hand-written retrieval queries, not novel-core discovery or competitive evaluation. Both paths use the same exporter; parity cannot detect shared extraction errors.",
+  "timingCaveat": "Five warm repetitions on one laptop. Graph timing includes local network round trip; JS uses prebuilt in-memory indexes. Not a database speed comparison."
+}

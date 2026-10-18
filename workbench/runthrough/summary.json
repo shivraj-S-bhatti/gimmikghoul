@@ -1,0 +1,241 @@
+{
+  "revision": "a833737d8408322c8b1e821dee16af07b1fd9234",
+  "format": "gen9championsvgc2026regmc",
+  "seed": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "scope": "Seven controlled execution branches; all fixture teams validated. No matchup or win-rate claim.",
+  "branches": [
+    {
+      "name": "memento-ally",
+      "teamValidation": "passed",
+      "requestState": "switch",
+      "final": [
+        {
+          "species": "Gholdengo",
+          "ability": "goodasgold",
+          "fainted": true,
+          "boosts": {}
+        },
+        {
+          "species": "Staraptor-Mega",
+          "ability": "contrary",
+          "fainted": false,
+          "boosts": {
+            "atk": 2,
+            "spa": 2
+          }
+        }
+      ],
+      "events": [
+        "|-mega|p1b: Staraptor|Staraptor|Staraptite",
+        "|move|p1b: Staraptor|Brave Bird|p2b: Garchomp",
+        "|move|p1a: Gholdengo|Memento|p1b: Staraptor",
+        "|-boost|p1b: Staraptor|atk|2",
+        "|-boost|p1b: Staraptor|spa|2",
+        "|faint|p1a: Gholdengo"
+      ]
+    },
+    {
+      "name": "normal-fakeout-gholdengo",
+      "teamValidation": "passed",
+      "requestState": "switch",
+      "final": [
+        {
+          "species": "Gholdengo",
+          "ability": "goodasgold",
+          "fainted": true,
+          "boosts": {}
+        },
+        {
+          "species": "Staraptor-Mega",
+          "ability": "contrary",
+          "fainted": false,
+          "boosts": {
+            "atk": 2,
+            "spa": 2
+          }
+        }
+      ],
+      "events": [
+        "|-mega|p1b: Staraptor|Staraptor|Staraptite",
+        "|move|p2a: Rillaboom|Fake Out|p1a: Gholdengo",
+        "|-immune|p1a: Gholdengo",
+        "|move|p1b: Staraptor|Brave Bird|p2b: Garchomp",
+        "|move|p1a: Gholdengo|Memento|p1b: Staraptor",
+        "|-boost|p1b: Staraptor|atk|2",
+        "|-boost|p1b: Staraptor|spa|2",
+        "|faint|p1a: Gholdengo"
+      ]
+    },
+    {
+      "name": "scrappy-fakeout-gholdengo",
+      "teamValidation": "passed",
+      "requestState": "move",
+      "final": [
+        {
+          "species": "Gholdengo",
+          "ability": "goodasgold",
+          "fainted": false,
+          "boosts": {}
+        },
+        {
+          "species": "Staraptor-Mega",
+          "ability": "contrary",
+          "fainted": false,
+          "boosts": {}
+        }
+      ],
+      "events": [
+        "|-mega|p1b: Staraptor|Staraptor|Staraptite",
+        "|move|p2a: Kangaskhan|Fake Out|p1a: Gholdengo",
+        "|move|p1b: Staraptor|Brave Bird|p2b: Garchomp",
+        "|cant|p1a: Gholdengo|flinch"
+      ]
+    },
+    {
+      "name": "followme-redirection",
+      "teamValidation": "passed",
+      "requestState": "switch",
+      "final": [
+        {
+          "species": "Gholdengo",
+          "ability": "goodasgold",
+          "fainted": true,
+          "boosts": {}
+        },
+        {
+          "species": "Staraptor-Mega",
+          "ability": "contrary",
+          "fainted": false,
+          "boosts": {}
+        }
+      ],
+      "events": [
+        "|-mega|p1b: Staraptor|Staraptor|Staraptite",
+        "|move|p2a: Clefable|Follow Me|p2a: Clefable",
+        "|move|p1b: Staraptor|Brave Bird|p2a: Clefable",
+        "|move|p1a: Gholdengo|Memento|p2a: Clefable",
+        "|faint|p1a: Gholdengo"
+      ]
+    },
+    {
+      "name": "scarf-memento-before-attack",
+      "teamValidation": "passed",
+      "requestState": "switch",
+      "final": [
+        {
+          "species": "Gholdengo",
+          "ability": "goodasgold",
+          "fainted": true,
+          "boosts": {}
+        },
+        {
+          "species": "Staraptor-Mega",
+          "ability": "contrary",
+          "fainted": false,
+          "boosts": {
+            "atk": 2,
+            "spa": 2
+          }
+        }
+      ],
+      "events": [
+        "|-mega|p1b: Staraptor|Staraptor|Staraptite",
+        "|move|p1a: Gholdengo|Memento|p1b: Staraptor",
+        "|-boost|p1b: Staraptor|atk|2",
+        "|-boost|p1b: Staraptor|spa|2",
+        "|faint|p1a: Gholdengo",
+        "|move|p1b: Staraptor|Brave Bird|p2b: Garchomp"
+      ]
+    },
+    {
+      "name": "base-audino-chain",
+      "teamValidation": "passed",
+      "requestState": "move",
+      "final": [
+        {
+          "species": "Slowbro-Mega",
+          "ability": "shellarmor",
+          "fainted": false,
+          "boosts": {
+            "def": 6,
+            "spd": 6
+          }
+        },
+        {
+          "species": "Snorlax",
+          "ability": "simple",
+          "fainted": false,
+          "boosts": {
+            "def": 6,
+            "spd": 6
+          }
+        }
+      ],
+      "slowbroMegaChoiceAccepted": true,
+      "choiceError": "",
+      "events": [
+        "|move|p1a: Audino|Simple Beam|p1b: Snorlax",
+        "|move|p1b: Snorlax|Stockpile|p1b: Snorlax",
+        "|-boost|p1b: Snorlax|def|2",
+        "|-boost|p1b: Snorlax|spd|2",
+        "|move|p1b: Snorlax|Stockpile|p1b: Snorlax",
+        "|-boost|p1b: Snorlax|def|2",
+        "|-boost|p1b: Snorlax|spd|2",
+        "|move|p1b: Snorlax|Stockpile|p1b: Snorlax",
+        "|-boost|p1b: Snorlax|def|2",
+        "|-boost|p1b: Snorlax|spd|2",
+        "|move|p1a: Slowbro|Psych Up|p1b: Snorlax",
+        "|-copyboost|p1a: Slowbro|p1b: Snorlax|[from] move: Psych Up",
+        "|-mega|p1a: Slowbro|Slowbro|Slowbronite",
+        "|move|p1a: Slowbro|Body Press|p2a: Rillaboom"
+      ]
+    },
+    {
+      "name": "mega-audino-spends-mega",
+      "teamValidation": "passed",
+      "requestState": "move",
+      "final": [
+        {
+          "species": "Slowbro",
+          "ability": "regenerator",
+          "fainted": false,
+          "boosts": {
+            "def": 6,
+            "spd": 6
+          }
+        },
+        {
+          "species": "Snorlax",
+          "ability": "simple",
+          "fainted": false,
+          "boosts": {
+            "def": 6,
+            "spd": 6
+          }
+        }
+      ],
+      "slowbroMegaChoiceAccepted": false,
+      "choiceError": "Can't move: Slowbro can't mega evolve",
+      "events": [
+        "|-mega|p1a: Audino|Audino|Audinite",
+        "|move|p1a: Audino|Simple Beam|p1b: Snorlax",
+        "|move|p1b: Snorlax|Stockpile|p1b: Snorlax",
+        "|-boost|p1b: Snorlax|def|2",
+        "|-boost|p1b: Snorlax|spd|2",
+        "|move|p1b: Snorlax|Stockpile|p1b: Snorlax",
+        "|-boost|p1b: Snorlax|def|2",
+        "|-boost|p1b: Snorlax|spd|2",
+        "|move|p1b: Snorlax|Stockpile|p1b: Snorlax",
+        "|-boost|p1b: Snorlax|def|2",
+        "|-boost|p1b: Snorlax|spd|2",
+        "|move|p1a: Slowbro|Psych Up|p1b: Snorlax",
+        "|-copyboost|p1a: Slowbro|p1b: Snorlax|[from] move: Psych Up"
+      ]
+    }
+  ]
+}

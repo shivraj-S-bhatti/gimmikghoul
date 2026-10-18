@@ -1,0 +1,242 @@
+{
+  "id": "memento-staraptor",
+  "format": "gen9championsvgc2026regmc",
+  "purpose": "Explore whether a donor enables a decision-changing Staraptor attack; retain costs and alternative timings.",
+  "revisionReason": "Keep the failed unscarfed timing assumption; add Choice Scarf as an alternative supported only by the earlier controlled opening.",
+  "targets": [
+    {
+      "id": "selected-garchomp",
+      "set": "garchomp-candidate",
+      "status": "proposed",
+      "reason": "A concrete damage threshold to investigate; user prioritization remains undecided."
+    }
+  ],
+  "concessions": {
+    "status": "undecided",
+    "matchups": []
+  },
+  "sets": {
+    "gholdengo-fast": {
+      "species": "Gholdengo",
+      "ability": "Good as Gold",
+      "moves": [
+        "Memento"
+      ],
+      "item": "",
+      "nature": "Timid",
+      "evs": {
+        "spa": 32,
+        "spe": 32,
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "spd": 0
+      },
+      "level": 50,
+      "name": "Gholdengo",
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      }
+    },
+    "staraptor-opening": {
+      "species": "Staraptor",
+      "ability": "Intimidate",
+      "moves": [
+        "Brave Bird",
+        "Protect"
+      ],
+      "item": "Staraptite",
+      "nature": "Jolly",
+      "evs": {
+        "atk": 32,
+        "spe": 32,
+        "hp": 2,
+        "def": 0,
+        "spa": 0,
+        "spd": 0
+      },
+      "level": 50,
+      "name": "Staraptor",
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      }
+    },
+    "staraptor-damage": {
+      "species": "Staraptor-Mega",
+      "level": 50,
+      "ability": "contrary",
+      "item": "staraptite",
+      "moves": [
+        "closecombat",
+        "protect",
+        "bravebird",
+        "tailwind"
+      ],
+      "nature": "Jolly",
+      "evs": {
+        "hp": 2,
+        "atk": 32,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 32
+      },
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "canonicalSpecies": "Staraptor-Mega"
+    },
+    "garchomp-candidate": {
+      "species": "Garchomp",
+      "level": 50,
+      "ability": "roughskin",
+      "item": "lifeorb",
+      "moves": [
+        "dragonclaw",
+        "rockslide",
+        "earthquake",
+        "protect"
+      ],
+      "nature": "Jolly",
+      "evs": {
+        "hp": 2,
+        "atk": 32,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 32
+      },
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      }
+    },
+    "gholdengo-scarf": {
+      "species": "Gholdengo",
+      "ability": "Good as Gold",
+      "moves": [
+        "Memento"
+      ],
+      "item": "Choice Scarf",
+      "nature": "Timid",
+      "evs": {
+        "spa": 32,
+        "spe": 32,
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "spd": 0
+      },
+      "level": 50,
+      "name": "Gholdengo",
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      }
+    }
+  },
+  "plans": [
+    {
+      "id": "unscarfed",
+      "sets": [
+        "gholdengo-fast",
+        "staraptor-opening"
+      ],
+      "description": "Memento into Contrary Mega Staraptor. Tested spreads place Brave Bird first, so boost is for a later attack.",
+      "costs": [
+        "Gholdengo faints",
+        "Memento consumes the donor action",
+        "Mega slot used by Staraptor"
+      ],
+      "counterplay": [
+        "Opposing redirection can change the target; the selected artifact here is only the passive opening."
+      ]
+    },
+    {
+      "id": "scarf-donor",
+      "sets": [
+        "gholdengo-scarf",
+        "staraptor-opening"
+      ],
+      "description": "Choice Scarf donor uses Memento before the first Brave Bird in the recorded opening.",
+      "costs": [
+        "Gholdengo faints",
+        "Donor action and Choice Scarf item slot",
+        "Mega slot used by Staraptor",
+        "Choice lock restricts alternate donor actions"
+      ],
+      "counterplay": [
+        "Redirection or interruption can defeat this line; the imported Scarf fixture only tests opposing Protect."
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "unscarfed-before-first-attack",
+      "text": "Unscarfed donor supplies +2 before first Brave Bird.",
+      "interpretation": "Contradicted for the tested opening; retained to show the failed assumption.",
+      "evidence": [
+        {
+          "kind": "execution_observation",
+          "reference": "executionEvidence",
+          "locator": "records[name=memento-ally]",
+          "origin": "imported_existing"
+        }
+      ]
+    },
+    {
+      "id": "boosted-garchomp-threshold",
+      "text": "After obtaining +2, Brave Bird reaches the selected Garchomp OHKO threshold.",
+      "scope": "Selected candidate sets, full HP, neutral field. Establishing the boosts is a different question."
+    },
+    {
+      "id": "scarf-before-first-attack",
+      "text": "Choice Scarf donor supplies +2 before first Brave Bird for the recorded spreads and opening.",
+      "scope": "Imported community-engine fixture with opposing Protect; no damage landing or battle-win claim.",
+      "evidence": [
+        {
+          "kind": "execution_observation",
+          "reference": "executionEvidence",
+          "locator": "records[name=scarf-memento-before-attack]",
+          "origin": "imported_existing"
+        }
+      ]
+    }
+  ],
+  "openQuestions": [
+    "Which target matchups should this team prioritize?",
+    "Is the earlier boost worth the Choice Scarf item and donor sacrifice?",
+    "Which redirection or interruption matchups are acceptable concessions?"
+  ],
+  "references": {
+    "executionEvidence": "data/theories/memento-staraptor/execution-evidence.json",
+    "selectedCheck": "data/theories/memento-staraptor/selected-check.json"
+  },
+  "sourceNotes": [
+    "Damage sets copied from September marginal-mode candidates; not observed complete teams.",
+    "Execution fixture deliberately uses reduced move sets; named execution and damage sets remain distinct."
+  ]
+}

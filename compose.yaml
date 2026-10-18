@@ -1,0 +1,37 @@
+services:
+  browser:
+    profiles: [explore]
+    build:
+      context: .
+      dockerfile: workbench/native-browser/Dockerfile
+    image: pokemon-falkordb-browser:sprites-v1
+    volumes:
+      - ./data/sprites:/app/public/sprites:ro
+    ports:
+      - "127.0.0.1:4319:3000"
+    environment:
+      FALKORDB_HOST: graph
+      FALKORDB_PORT: "6379"
+      FALKORDB_USERNAME: default
+      FALKORDB_PASSWORD: ""
+      NEXTAUTH_URL: http://localhost:4319
+    depends_on:
+      graph:
+        condition: service_healthy
+  graph:
+    image: falkordb/falkordb@sha256:b0bdcac2cbaff989e77cb0610439b7a9289e86de033ccbbd4368b66fb680ae7a
+    ports:
+      - "127.0.0.1:6388:6379"
+    volumes:
+      - graph-data:/data
+    environment:
+      BROWSER: "0"
+      FALKORDB_DATA_PATH: /data
+      REDIS_ARGS: --appendonly yes
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+volumes:
+  graph-data:
