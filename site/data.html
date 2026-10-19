@@ -3,59 +3,109 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Gimmikwatch Data</title>
-<meta name="description" content="Anonymised Reg M-C team sheets and pairings from Frankfurt, Louisville and Nice 2027, plus the harness that rebuilds every Gimmikwatch number.">
+<title>Gimmikwatch Harness</title>
+<meta name="description" content="How Gimmikwatch works: an agent harness over the Showdown engine, a damage calculator, a meta pipeline and a just-in-time knowledge graph, plus the anonymised Reg M-C datasets.">
 <meta property="og:image" content="https://shivraj-s-bhatti.github.io/gimmikghoul/assets/social-preview.png">
 <link rel="icon" href="assets/favicon.png">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Figtree:wght@400;500;600;700;800&family=Martian+Mono:wght@400;600&display=swap">
-<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/site.css?v=7">
 </head>
 <body>
 <div class="wrap">
+  <div class="hero-nav"><nav aria-label="Pages"><a href="./">Report</a><a href="thesis.html">Thesis</a><a href="data.html" aria-current="page">Data &amp; harness</a><a href="https://github.com/shivraj-S-bhatti/gimmikghoul">GitHub</a></nav></div>
   <section class="glass">
-    <div class="hero-nav"><nav aria-label="Pages"><a href="./">Report</a><a href="thesis.html">Thesis</a><a href="data.html" aria-current="page">Data &amp; harness</a><a href="https://github.com/shivraj-S-bhatti/gimmikghoul">GitHub</a></nav></div>
-    <div class="row" style="gap:22px;align-items:center"><span class="coin" style="width:104px;height:104px"><img src="assets/scientist.png" alt="Gimmikghoul, a Gimmighoul in a lab coat with coin spectacles"></span><div style="display:grid;gap:8px;flex:1 1 360px;min-width:0"><span class="eyebrow">GIMMIKWATCH · DATASETS</span><h1>Three Regionals, 3,004 teams</h1></div></div>
-    <p>Masters division at Frankfurt (Sep 26–27), Louisville (Oct 10–11) and Nice (Oct 17–18), 2026, Pokémon Champions Reg M-C. Every team's six sets, final placing, Day 1 record and every pairing. Player names and team-sheet links are removed. A team is identified only by event and place.</p>
+    <div class="row" style="gap:22px;align-items:center">
+      <span class="coin" style="width:104px;height:104px"><img src="assets/scientist.png" alt="Gimmikghoul, a Gimmighoul in a lab coat with coin spectacles"></span>
+      <div style="display:grid;gap:8px;flex:1 1 360px;min-width:0"><span class="eyebrow">GIMMIKWATCH · HARNESS</span><h1>How the agent thinks</h1></div>
+    </div>
+    <p>An agent answers a team question by running checks, not by recalling. It queries a graph of game mechanics, runs the real battle engine and damage calculator, reads what the field actually played, and writes what it finds into a small <span class="tip" tabindex="0" data-tip="A knowledge graph built for one question and kept afterwards. Its node and edge types are created as the question needs them, not designed up front.">just-in-time graph</span>. That graph is the agent's working memory: plans that take several turns become paths through it.</p>
+  </section>
+
+  <section class="glass">
+    <span class="k">One turn</span>
+    <h2>The harness</h2>
+<pre class="diagram"><span class="y">QUESTION</span>  ────────▶  <span class="g">AGENT</span>  Claude Code / Codex  ────────▶  <span class="y">ANSWER</span>
+"why did 15-2 and         │  writes queries and code,           plan, leads,
+ 0-8 split?"              │  reads results                      what to accept
+                          ▼
+  ┌───────────────┬───────────────┬───────────────┬────────────────┐
+  │ <span class="b">META HARNESS</span>  │ <span class="b">ENGINE</span>        │ <span class="b">CALCULATOR</span>    │ <span class="b">GRAPH</span> (MCP)    │
+  │ events.mjs    │ Showdown      │ Smogon        │ FalkorDB       │
+  │ plans.py      │ Champions mod │ Champions     │ catalog graph  │
+  │ cases.mjs     │ mechanics.cjs │ damage rows   │ idea graphs    │
+  └───────┬───────┴───────┬───────┴───────┬───────┴────────┬───────┘
+          └───────────────┴───────┬───────┴────────────────┘
+                                  ▼
+                  <span class="g">JIT IDEA GRAPH</span>   one per question, kept afterwards
+                  nodes  Pokémon · moves · field states · plans · events
+                  edges  carry how they were found: engine, calc, data, source</pre>
+    <div class="grid3">
+      <div class="tile"><h3>Meta harness</h3><p>Turns open team sheets into plans, a matchup matrix and per-event shares. What was played, and how it did.</p></div>
+      <div class="tile"><h3>Engine and calculator</h3><p>Answer what the agent can't eyeball: does terrain pop the Seed, does Sleep Powder land, does +2 Draco one-shot. Every answer is re-runnable.</p></div>
+      <div class="tile"><h3>Graph over MCP</h3><p>The agent reads and writes FalkorDB through its MCP server, so the memory outlives the chat.</p></div>
+    </div>
+  </section>
+
+  <section class="glass">
+    <span class="k">What the agent can see</span>
+    <h2>Three layers</h2>
+<pre class="diagram"><span class="b">MECHANICS</span>   what can happen      species · moves · abilities · items · type chart     <span class="y">engine</span>
+    │
+<span class="b">TEMPORAL</span>    what was played      events → teams → plans → matchups → shares           <span class="y">meta harness</span>
+    │
+<span class="g">IDEA</span>        what we're testing   built per question · revised by adding, never erased  <span class="y">agent</span></pre>
+    <p>Mechanics say what's possible. The temporal layer says what the field did and when, which is what "why now" needs. The idea layer holds the current theory: claims, the check behind each one, and what would break it.</p>
+  </section>
+
+  <section class="glass">
+    <span class="k">Example</span>
+    <h2>The Raichu X idea graph</h2>
+<pre class="diagram"><span class="g">Raichu-Mega-X</span> ──SETS──▶ <span class="b">Electric Terrain</span> ──CONSUMES──▶ <span class="b">Electric Seed</span>
+                             │                                  │
+                             │ BLOCKS                           │ TRIGGERS
+                             ▼                                  ▼
+                        Sleep Powder                     Unburden  Sneasler 172 → 344
+                        SunRain's Venusaur                      │
+                                                                │ OUTSPEEDS
+                                                                ▼
+                                                     Scarf Garchomp  253
+
+<span class="y">Snarl</span> ──LOWERS SpA──▶ Zap Cannon · Muddy Water · Ice Beam        ✗ Volt Tackle · Close Combat
+
+<span class="y">Louisville</span> ──FIELD SHIFT──▶ <span class="y">Nice</span>     Scarf Garchomp 13 → 27%   Snarl 18 → 47%</pre>
+    <p>Each edge carries its evidence: <code>SETS</code> and <code>TRIGGERS</code> come from engine runs, the speeds from battle-form stats, the field shift from the team sheets. Swap Raichu X for Raichu Y and the <code>SETS</code> edge disappears, and so does everything downstream of it. That is the 15-2 and the 0-8, read off the graph.</p>
+  </section>
+
+  <section class="glass">
+    <span class="k">Long-horizon planning</span>
+    <h2>Plans are paths</h2>
+    <p>A win that takes several turns (Mega Evolve, terrain pops the Seed, Swords Dance, sweep) isn't one edge. It's a path. Store each step as an edge with its condition and the check that proved it, and a multi-turn plan becomes a bounded path query:</p>
+<pre>MATCH p = (start)-[:ENABLES*2..5]->(goal {kind: 'win'})
+RETURN p</pre>
+    <p>The agent searches routes instead of re-deriving them, and every route arrives with its receipts. In an exploratory run, a query like this over a stat-effect graph returned about 4,400 setup chains in about 110 ms. Because the graph persists, the next session continues the theory instead of starting over.</p>
+  </section>
+
+  <section class="glass">
+    <span class="k">Datasets</span>
+    <h2>Three Regionals, 3,004 teams</h2>
+    <p>Masters division at Frankfurt (Sep 26–27), Louisville (Oct 10–11) and Nice (Oct 17–18), 2026, Pokémon Champions Reg M-C. Player names and team-sheet links are removed. A team is identified only by event and place.</p>
     <div class="scroll"><table>
       <thead><tr><th>File</th><th>What it holds</th><th>Size</th></tr></thead>
       <tbody>
-        <tr><td><a href="data/teams.csv">teams.csv</a></td><td>One row per team: event, place, Day 1 wins and losses, made Day 2, six battle forms with items</td><td class="num">0.5 MB</td></tr>
+        <tr><td><a href="data/teams.csv">teams.csv</a></td><td>One row per team: event, place, Day 1 record, made Day 2, six battle forms with items</td><td class="num">0.5 MB</td></tr>
         <tr><td><a href="data/matches.csv">matches.csv</a></td><td>Every pairing: team indices, whether team A won (0.5 = tie), round</td><td class="num">0.2 MB</td></tr>
-        <tr><td><a href="data/teams.json">teams.json</a></td><td>Full sets (item, ability, nature, moves) and the <span class="tip" tabindex="0" data-tip="Battle form, weather and terrain setters, key abilities, speed control, redirection, sleep, Perish Song, plus every item and move. Built by meta/events.mjs with the pinned Showdown engine.">engine-derived tokens</span> each team is analysed with</td><td class="num">6.5 MB</td></tr>
-        <tr><td><a href="data/plans.json">plans.json</a></td><td>The 16 learned plans, each plan's strength, the plan-vs-plan matrix, raw records, confirmed loops, probe accuracy and the team map</td><td class="num">67 KB</td></tr>
-        <tr><td><a href="data/cases.json">cases.json</a></td><td>Every number in the report: the Raichu split, SunRain's adaptations, Basculegion, Perish, the team's lineage, Megas at Nice</td><td class="num">4 KB</td></tr>
-        <tr><td><a href="data/mechanics.json">mechanics.json</a></td><td>Engine checks: speeds, Electric Seed under Mega Raichu X, Sleep Powder over 40 seeds, Lightning Rod redirection</td><td class="num">1 KB</td></tr>
+        <tr><td><a href="data/teams.json">teams.json</a></td><td>Full sets and the <span class="tip" tabindex="0" data-tip="Battle form, weather and terrain setters, key abilities, speed control, redirection, sleep, Perish Song, plus every item and move. Built by meta/events.mjs with the pinned Showdown engine.">engine-derived tokens</span> each team is analysed with</td><td class="num">6.5 MB</td></tr>
+        <tr><td><a href="data/plans.json">plans.json</a></td><td>16 learned plans, strengths, the plan-vs-plan matrix, raw records, confirmed loops, probe accuracy, team map</td><td class="num">67 KB</td></tr>
+        <tr><td><a href="data/cases.json">cases.json</a></td><td>Every number in the report</td><td class="num">4 KB</td></tr>
+        <tr><td><a href="data/mechanics.json">mechanics.json</a></td><td>Engine checks: speeds, Electric Seed, Sleep Powder over 40 seeds, Lightning Rod</td><td class="num">1 KB</td></tr>
       </tbody>
     </table></div>
+<pre>npm ci && npm run prepare:data                                       # pinned Showdown Champions engine
+node meta/events.mjs                                                 # normalise, anonymise, tokenise
+uv run --with numpy --with scikit-learn python -I meta/plans.py      # plans, probe, loops, map
+node meta/cases.mjs && node meta/mechanics.cjs                       # report numbers, engine checks
+for step in 1 2 3 4 5 6; do npm run demo:jit -- "$step"; done        # build an idea graph in FalkorDB</pre>
     <p class="sub">Source: RK9 open team sheets and pairings, collected by <a href="https://vgchistory.com">VGC History</a>. Sprites from Pokémon Showdown. Pokémon is © The Pokémon Company and Nintendo; this is a fan research project.</p>
-  </section>
-
-  <section class="glass">
-    <span class="k">Harness</span>
-    <h2>Rebuild everything</h2>
-    <p>Four scripts in <a href="https://github.com/shivraj-S-bhatti/gimmikghoul/tree/main/meta"><code>meta/</code></a>. Requires Node 22.18+, the pinned Showdown build from <code>npm run prepare:data</code>, and <a href="https://docs.astral.sh/uv/">uv</a> for the Python step.</p>
-<pre>npm ci && npm run prepare:data          # pinned Showdown Champions engine
-node meta/events.mjs                     # fetch, normalise, anonymise, tokenise
-uv run --with numpy --with scikit-learn \
-  python -I meta/plans.py                # plans, probe, loops, map
-node meta/cases.mjs                      # every report number
-node meta/mechanics.cjs                  # engine checks</pre>
-    <div class="grid2">
-      <div class="tile"><h3>events.mjs</h3><p>Loads each event, keeps the Masters division, drops names, resolves Mega forms and abilities in the engine, and writes the team tokens. Pass other event slugs to add events.</p></div>
-      <div class="tile"><h3>plans.py</h3><p><span class="tip" tabindex="0" data-tip="Non-negative matrix factorisation of the TF-IDF team matrix into 16 sparse features.">Dictionary learning</span>, the pairwise <span class="tip" tabindex="0" data-tip="Logistic model on plan activations: one strength per plan plus antisymmetric plan-vs-plan terms.">probe</span>, loops checked against raw records, and a t-SNE map. Deterministic seeds.</p></div>
-      <div class="tile"><h3>cases.mjs</h3><p>Filters and counts behind each report claim, written out so any of them can be argued with.</p></div>
-      <div class="tile"><h3>mechanics.cjs</h3><p>Scripted doubles turns in the engine: terrain, Electric Seed, Unburden speed, Sleep Powder over 40 seeds, Lightning Rod.</p></div>
-    </div>
-  </section>
-
-  <section class="glass">
-    <span class="k">Use it</span>
-    <h2>Questions worth asking next</h2>
-    <div class="grid3">
-      <div class="tile"><p>Add the next Regional and check whether the equilibrium gaps were real: did under-played plans gain?</p></div>
-      <div class="tile"><p>Swap a token on a team and re-score it against a field: the probe's patching test.</p></div>
-      <div class="tile"><p>Find your favourite unused Pokémon's best plan, then check its value against this week's mix.</p></div>
-    </div>
   </section>
 
   <footer class="glass">
@@ -63,5 +113,6 @@ node meta/mechanics.cjs                  # engine checks</pre>
     <p class="sub" style="font-size:13px">Gimmikghoul is a community experiment in agent-assisted teambuilding. Code and data on <a href="https://github.com/shivraj-S-bhatti/gimmikghoul">GitHub</a>.</p>
   </footer>
 </div>
+<script src="assets/bg.js?v=7"></script>
 </body>
 </html>
