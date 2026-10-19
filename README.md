@@ -10,6 +10,20 @@ The ambition is a shared reasoning canvas: people and agents build conditional p
 
 [Explore the visual direction](visuals/README.md) · [Research lineage](research/CITATION_TREE.md) · [Current technical walkthrough](workbench/jit/BLOG.md) · [Contribute an idea](CONTRIBUTING.md)
 
+## Gimmikwatch: the Reg M-C meta as a market of plans
+
+**[Read the report](https://shivraj-s-bhatti.github.io/gimmikghoul/)** · [Thesis and math](https://shivraj-s-bhatti.github.io/gimmikghoul/thesis.html) · [Data and harness](https://shivraj-s-bhatti.github.io/gimmikghoul/data.html)
+
+Why the same six Pokémon went 15-2 and 0-8 at Nice Regionals 2027, read through 3,004 anonymised open team sheets from Frankfurt, Louisville and Nice. Dictionary learning finds 16 plans players already name. A matchup probe splits into 75% strength and 25% rock-paper-scissors. A plan's change in value between events splits exactly into per-opponent terms.
+
+```sh
+node meta/events.mjs                                                   # normalise + anonymise sheets
+uv run --with numpy --with scikit-learn python -I meta/plans.py        # plans, probe, loops, map
+node meta/cases.mjs && node meta/mechanics.cjs                         # report numbers, engine checks
+```
+
+The site lives in [`site/`](site/) and deploys to GitHub Pages on push.
+
 ## Where we are
 
 The runnable starting point builds a FalkorDB graph around an attributed Alcremie / Mega Garchomp Z team, retrieves move candidates from a pinned Champions engine, and attaches selected native calculator results. A separate file-based theory loop preserves revisions and identifies stale receipts. These are useful pieces of the intended workbench; the full interactive theory system in the storyboards is proposed.

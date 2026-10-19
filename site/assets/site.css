@@ -1,0 +1,73 @@
+/* Gimmikwatch site: Gholdengo-card blue with a multi-peak halftone, frosted glass panels, coin badge. */
+:root {
+  --ink: #0b1838; --mute: #33456e; --win: #146c43; --loss: #b42318; --gold: #ffc83d; --amber: #ffb000; --blue: #2a5bd7;
+  --glass: linear-gradient(135deg, rgba(255,255,255,.64), rgba(255,255,255,.36));
+  --display: "Unbounded", "Arial Black", system-ui, sans-serif; --body: "Figtree", system-ui, -apple-system, sans-serif; --mono: "Martian Mono", ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.35) transparent; }
+::-webkit-scrollbar { width: 8px; height: 8px; background: transparent; }
+::-webkit-scrollbar-track, ::-webkit-scrollbar-corner { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,.35); border-radius: 4px; }
+body { margin: 0; color: var(--ink); font: 16px/1.5 var(--body); background: var(--blue) url(halftone2.svg) top center / 1600px 1000px repeat; }
+a { color: var(--blue); }
+a:focus-visible, button:focus-visible, .tip:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; border-radius: 4px; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: 16px; padding-block: 24px 64px; display: grid; gap: 26px; }
+.glass { background: var(--glass); backdrop-filter: blur(22px) saturate(170%); -webkit-backdrop-filter: blur(22px) saturate(170%); border: 1px solid rgba(255,255,255,.7);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.9), 0 22px 54px rgba(6,30,90,.28); border-radius: 30px; padding: clamp(18px, 3vw, 34px); display: grid; gap: 18px; min-width: 0; }
+.tile { background: rgba(255,255,255,.6); border-radius: 22px; padding: 16px 18px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 16px; }
+.grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 14px; }
+h1, h2, h3 { font-family: var(--display); margin: 0; line-height: 1.05; text-wrap: balance; letter-spacing: -.01em; }
+h1 { font-size: clamp(32px, 6vw, 58px); font-weight: 800; }
+h2 { font-size: clamp(24px, 3.6vw, 34px); font-weight: 800; }
+h3 { font-size: 20px; font-weight: 800; }
+p { margin: 0; max-width: 70ch; }
+.sub { font-weight: 600; color: var(--mute); }
+.k { font: 600 12px/1.3 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--mute); }
+.big { font: 800 clamp(30px, 5vw, 46px)/1 var(--display); font-variant-numeric: tabular-nums; }
+.win { color: var(--win); } .loss { color: var(--loss); }
+.num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.mons { display: flex; flex-wrap: wrap; gap: 2px; }
+.mons img, .sp { width: 64px; height: 64px; object-fit: contain; }
+.sp-s { width: 46px; height: 46px; object-fit: contain; }
+.sp-l { width: 96px; height: 96px; object-fit: contain; }
+.gold-ring { box-shadow: 0 0 0 3px var(--gold); }
+
+/* Header and nav */
+.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 14px; text-decoration: none; color: #fff; }
+.brand b { font: 800 20px var(--display); letter-spacing: .12em; text-shadow: 0 2px 10px rgba(6,30,90,.4); }
+.coin { background: url(coin.png) center / cover no-repeat; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 16px rgba(6,30,90,.35); flex: none; }
+.coin img { image-rendering: pixelated; width: 88%; height: 88%; object-fit: contain; }
+nav { display: flex; gap: 8px; flex-wrap: wrap; }
+nav a { color: var(--ink); text-decoration: none; font: 600 14px var(--body); background: rgba(255,255,255,.55); border: 1px solid rgba(255,255,255,.8); border-radius: 999px; padding: 10px 16px; min-height: 44px; display: inline-flex; align-items: center; }
+nav a[aria-current="page"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+/* Tooltips: dotted underline marks anything you can hover or focus for an explanation. */
+.tip { position: relative; text-decoration: underline dotted 2px; text-underline-offset: 3px; text-decoration-color: rgba(11,24,56,.55); cursor: help; }
+.tip::after { content: attr(data-tip); position: absolute; left: 50%; bottom: calc(100% + 10px); transform: translateX(-50%) translateY(4px); width: max-content; max-width: min(320px, 80vw);
+  background: var(--ink); color: #fff; font: 500 13px/1.45 var(--body); letter-spacing: 0; text-transform: none; text-align: left; padding: 10px 12px; border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(6,30,90,.35); opacity: 0; pointer-events: none; transition: opacity .15s, transform .15s; z-index: 50; white-space: normal; }
+.tip:hover::after, .tip:focus-visible::after, .tip:focus::after { opacity: 1; transform: translateX(-50%) translateY(0); }
+@media (prefers-reduced-motion: reduce) { .tip::after { transition: none; } }
+
+/* Speed ladder */
+.ladder { position: relative; height: 230px; background: rgba(255,255,255,.55); border-radius: 22px; overflow-x: auto; }
+.ladder .track { position: absolute; left: 24px; right: 24px; top: 190px; height: 4px; border-radius: 2px; background: rgba(11,24,56,.25); }
+.ladder .pt { position: absolute; width: 104px; display: grid; justify-items: center; gap: 2px; transform: translateX(-50%); }
+.ladder .pt b { font: 800 18px var(--display); }
+.ladder .pt span { font: 600 12px var(--body); color: var(--mute); white-space: nowrap; }
+.bar { height: 16px; border-radius: 8px; background: rgba(11,24,56,.12); position: relative; flex: 1 1 140px; min-width: 120px; }
+.bar > i { position: absolute; inset: 0 auto 0 0; border-radius: 8px; }
+table { border-collapse: collapse; width: 100%; font-size: 15px; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid rgba(11,24,56,.12); vertical-align: middle; }
+th { font: 600 12px var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--mute); }
+.scroll { overflow-x: auto; }
+code, pre { font-family: var(--mono); font-size: 13px; }
+pre { background: rgba(11,24,56,.88); color: #e8edff; border-radius: 16px; padding: 16px; overflow-x: auto; margin: 0; }
+.math { overflow-x: auto; padding: 4px 0; }
+footer.glass { grid-template-columns: auto 1fr; align-items: center; }
+@media (max-width: 640px) { .mons img { width: 48px; height: 48px; } footer.glass { grid-template-columns: 1fr; } }

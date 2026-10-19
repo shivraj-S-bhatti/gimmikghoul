@@ -1,0 +1,30 @@
+{
+ "speeds": {
+  "Sneasler@Electric Seed": 172,
+  "Sneasler@White Herb": 172,
+  "Archaludon@Leftovers": 105,
+  "Pelipper@Damp Rock": 85,
+  "Garchomp@Choice Scarf": 253,
+  "Raichu-Mega-X": 178,
+  "Raichu-Mega-Y": 200
+ },
+ "megaX": {
+  "terrain": "electricterrain",
+  "seedConsumed": true,
+  "sneaslerSpeedNow": 344,
+  "unburden": true
+ },
+ "sleepPowder_raichuX": {
+  "asleep": 0,
+  "blockedByTerrain": 27,
+  "missed": 13
+ },
+ "sleepPowder_raichuY": {
+  "asleep": 27,
+  "blockedByTerrain": 0,
+  "missed": 13
+ },
+ "lightningRod": {
+  "electroShotRedirectedToRaichu": true
+ }
+}

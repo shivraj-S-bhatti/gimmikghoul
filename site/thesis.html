@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gimmikwatch Thesis</title>
+<meta name="description" content="The math behind Gimmikwatch: teams as documents, plans from dictionary learning, a matchup probe that splits into strength and loops, and why the meta circles.">
+<link rel="icon" href="assets/favicon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Figtree:wght@400;500;600;700;800&family=Martian+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/site.css">
+<style>.glass p, .glass li { font-size: 17px; line-height: 1.6; } .glass ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; max-width: 70ch; }</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="./"><span class="coin" style="width:56px;height:56px"><img src="assets/scientist.png" alt=""></span><b>GIMMIKWATCH</b></a>
+    <nav aria-label="Pages"><a href="./">Report</a><a href="thesis.html" aria-current="page">Thesis</a><a href="data.html">Data &amp; harness</a><a href="https://github.com/shivraj-S-bhatti/gimmikghoul">GitHub</a></nav>
+  </header>
+
+  <section class="glass">
+    <span class="k">Thesis</span>
+    <h1>A metagame is a market of plans</h1>
+    <p>Players copy what won last week, and they prepare for what they expect to face. So a plan's edge depends on two things: how strong it is, and who else shows up. Represent each team by the plans it runs, learn how plans do against each other from real matches, and you can say <em>why</em> a team won <em>at that event</em>, why a near-identical team didn't, and where the field left room.</p>
+    <p>Three claims, each tested on 3,004 open team sheets and 12,217 decided matches from Frankfurt, Louisville and Nice (Reg M-C, 2026):</p>
+    <ul>
+      <li><b>Plans are learnable.</b> Sparse dictionary learning recovers 16 plans players already name: Psyspam, Perish Trap, Protect the Queen, SunRain.</li>
+      <li><b>Matchups split into a hill and a merry-go-round.</b> About 75% of the matchup signal is plain strength; 25% is rock-paper-scissors that no plan escapes.</li>
+      <li><b>"Why now" is a field shift.</b> A plan's value moves when the mix of opponents moves, and the change splits exactly into per-opponent terms.</li>
+    </ul>
+  </section>
+
+  <section class="glass">
+    <span class="k">1 · Teams as documents</span>
+    <h2>Representation</h2>
+    <p>A team <span class="math">\(t\)</span> is a bag of tokens: its battle forms (Mega forms included), engine-derived mechanics (weather, terrain, speed control, redirection, sleep, Perish Song, key abilities) and set details (item, each move). With <span class="math">\(N\)</span> teams and document frequency <span class="math">\(\mathrm{df}_k\)</span>,</p>
+    <div class="math">$$x_{t,k} \;=\; \mathbb{1}[k \in t]\,\log\frac{N}{\mathrm{df}_k}, \qquad \hat x_t = \frac{x_t}{\lVert x_t\rVert_2}.$$</div>
+    <p>Rare tokens weigh more, so a Raichunite X says more about a team than Protect does.</p>
+  </section>
+
+  <section class="glass">
+    <span class="k">2 · Dictionary learning</span>
+    <h2>Plans</h2>
+    <p>Stack the team vectors into <span class="math">\(\hat X \in \mathbb{R}_{\ge 0}^{N\times V}\)</span> and factor it with non-negative matrix factorisation, the same move interpretability work uses to find sparse features inside a network:</p>
+    <div class="math">$$\min_{H \ge 0,\;C \ge 0}\; \lVert \hat X - H C \rVert_F^2, \qquad H \in \mathbb{R}^{N\times K},\; C \in \mathbb{R}^{K\times V},\; K = 16.$$</div>
+    <p>Row <span class="math">\(c_f\)</span> of <span class="math">\(C\)</span> is a plan: a weighted set of tokens. Row <span class="math">\(h_t\)</span> of <span class="math">\(H\)</span> says how much of each plan team <span class="math">\(t\)</span> runs. Each team's dominant plan is <span class="math">\(\arg\max_f h_{t,f}\)</span>.</p>
+  </section>
+
+  <section class="glass" id="probe">
+    <span class="k">3 · The probe</span>
+    <h2>Who beats whom</h2>
+    <p>Read match results off the plan activations with a pairwise logistic model:</p>
+    <div class="math">$$\Pr(A \succ B) \;=\; \sigma\!\big(\, s^\top (h_A - h_B) \;+\; h_A^\top W\, h_B \,\big), \qquad W = -W^\top.$$</div>
+    <p><span class="math">\(s\)</span> gives each plan one strength, like an Elo rating. The antisymmetric <span class="math">\(W\)</span> holds plan-vs-plan terms: <span class="math">\(W_{fg} > 0\)</span> means plan <span class="math">\(f\)</span> does better against <span class="math">\(g\)</span> than strength alone predicts. Antisymmetry keeps the model consistent: <span class="math">\(\Pr(A \succ B) = 1 - \Pr(B \succ A)\)</span>. Fit by L2-regularised log loss, regularisation picked by five-fold cross-validation.</p>
+    <p>Held out, the probe calls <b>53.75%</b> of match winners. A coin calls 50%. Team choice is a nudge; pilots and dice decide most games, which is why every claim here is about shifts and splits, not certainties.</p>
+  </section>
+
+  <section class="glass" id="hodge">
+    <span class="k">4 · Hill and merry-go-round</span>
+    <h2>Transitive vs cyclic</h2>
+    <p>The logit splits into two parts:</p>
+    <div class="math">$$z_{AB} \;=\; \underbrace{s^\top (h_A - h_B)}_{\text{transitive}} \;+\; \underbrace{h_A^\top W h_B}_{\text{cyclic}}, \qquad \text{cyclic share} \;=\; \frac{\operatorname{Var}(z^{\text{cyc}})}{\operatorname{Var}(z^{\text{tr}}) + \operatorname{Var}(z^{\text{cyc}})} \;=\; 0.25.$$</div>
+    <p>This is the split Balduzzi and colleagues use for symmetric zero-sum games: a transitive part, a gradient you can climb, and a cyclic part with no top. The cyclic part shows up as loops that the raw records confirm. Staraptor Offense beats Tyranitar Sand (67-46), which beats Froslass Snow (39-33), which beats Staraptor Offense (59-32).</p>
+  </section>
+
+  <section class="glass">
+    <span class="k">5 · Value against a field</span>
+    <h2>Why now</h2>
+    <p>Let <span class="math">\(f^{(e)}\)</span> be the share of each plan at event <span class="math">\(e\)</span>, and <span class="math">\(P_{ab}\)</span> plan <span class="math">\(a\)</span>'s win rate against <span class="math">\(b\)</span>, shrunk toward one half with <span class="math">\(\alpha = 20\)</span> virtual games so thin records can't dominate:</p>
+    <div class="math">$$P_{ab} = \frac{w_{ab} + \alpha/2}{w_{ab} + l_{ab} + \alpha}, \qquad V_a\big(f^{(e)}\big) = \sum_b f^{(e)}_b\, P_{ab}.$$</div>
+    <p>Shares sum to one, so their changes sum to zero, and the change in a plan's value between events splits exactly into opponent-by-opponent terms:</p>
+    <div class="math">$$\Delta V_a \;=\; \sum_b \Delta f_b\,\big(P_{ab} - \tfrac12\big).$$</div>
+    <p>A term is large when an opponent both grew and matches up lopsidedly. Between Louisville and Nice the SunRain plan grew, and inside it Choice Scarf Garchomp (13 → 27%) and Snarl Archaludon (18 → 47%) rose. Against those, the Raichu Y rain team went from 4-0 to 0-4.</p>
+  </section>
+
+  <section class="glass">
+    <span class="k">6 · Crowding</span>
+    <h2>Why copying eats the edge</h2>
+    <p>Even without counter-picks, popularity drags a plan toward 50%. If plan <span class="math">\(a\)</span> holds share <span class="math">\(f_a\)</span>, its mirrors are coin flips:</p>
+    <div class="math">$$V_a - \tfrac12 \;=\; (1 - f_a)\,\big(E_a - \tfrac12\big), \qquad E_a = \text{win rate against everyone else}.$$</div>
+    <p>Add counter-adaptation (the field brings answers to what won last week) and the edge falls faster. Weatherless Setup grew from 3.5% to 8.6% of teams while falling from 55.7% to 50.7%.</p>
+  </section>
+
+  <section class="glass">
+    <span class="k">7 · Equilibrium and dynamics</span>
+    <h2>Where the field left room</h2>
+    <p>Treat plans as pure strategies in the symmetric zero-sum game <span class="math">\(G = \tfrac12 (P - P^\top)\)</span>. Regret matching in self-play, with the time-averaged strategy, approaches an equilibrium mix <span class="math">\(x^{\ast}\)</span>. The gap <span class="math">\(x^{\ast}_a - f_a\)</span> marks plans the field under-played. Mega Gengar's Perish Trap was the clearest at Nice: 59.5% on Day 1, from 6% of teams.</p>
+    <p>The field's week-to-week movement looks like replicator dynamics,</p>
+    <div class="math">$$\dot f_a \;=\; f_a\,\big(V_a(f) - \bar V(f)\big), \qquad \bar V(f) = \textstyle\sum_a f_a V_a(f).$$</div>
+    <p>On the transitive part this behaves like gradient ascent: shares flow toward stronger plans. On the cyclic part it orbits instead of converging. With a 25% cyclic share, expect the meta to climb, then circle.</p>
+  </section>
+
+  <section class="glass">
+    <span class="k">8 · Checks and limits</span>
+    <h2>What holds and what doesn't</h2>
+    <ul>
+      <li>Every report number is recomputed from the published dataset by <code>meta/cases.mjs</code>. Mechanics (Electric Seed, terrain blocking sleep, Lightning Rod) are re-run in the pinned Showdown Champions engine by <code>meta/mechanics.cjs</code>.</li>
+      <li>Patching Raichu X to Raichu Y on the winning team doesn't move the probe. It averages Raichu Y over its 236 other teams. The Raichu story rests on matched teams and engine checks, not the probe.</li>
+      <li>Leads, which four were brought, the Mega used each game, and stat spreads aren't in open sheets.</li>
+      <li>Samples are small where it matters: 18 players ran the exact six.</li>
+    </ul>
+  </section>
+
+  <footer class="glass">
+    <span class="coin" style="width:64px;height:64px"><img src="assets/scientist.png" alt=""></span>
+    <p class="sub" style="font-size:13px">References: D. Balduzzi, K. Tuyls, J. Pérolat, T. Graepel, "Re-evaluating Evaluation", NeurIPS 2018; D. Balduzzi et al., "Open-ended Learning in Symmetric Zero-sum Games", ICML 2019; S. Hart and A. Mas-Colell, "A Simple Adaptive Procedure Leading to Correlated Equilibrium", Econometrica 2000; D. Lee and H. S. Seung, "Learning the parts of objects by non-negative matrix factorization", Nature 1999.</p>
+  </footer>
+</div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
+</body>
+</html>
