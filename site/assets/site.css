@@ -10,7 +10,7 @@ html { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.35) transparent
 ::-webkit-scrollbar { width: 8px; height: 8px; background: transparent; }
 ::-webkit-scrollbar-track, ::-webkit-scrollbar-corner { background: transparent; }
 ::-webkit-scrollbar-thumb { background: rgba(255,255,255,.35); border-radius: 4px; }
-body { margin: 0; color: var(--ink); font: 16px/1.5 var(--body); background: var(--blue) url(halftone2.svg) top center / 1600px 1000px repeat; }
+body { margin: 0; color: var(--ink); font: 16px/1.5 var(--body); background: var(--blue) url(halftone-tile.svg) 0 0 / 1600px 960px repeat; }
 a { color: var(--blue); }
 a:focus-visible, button:focus-visible, .tip:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; border-radius: 4px; }
 .wrap { max-width: 1120px; margin: 0 auto; padding-inline: 16px; padding-block: 24px 64px; display: grid; gap: 26px; }
