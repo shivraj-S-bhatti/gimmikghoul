@@ -51,6 +51,17 @@ Promise.all([fetch('data/plans.json').then(r => r.json()), fetch('data/cases.jso
     const X = v => L + (spread ? Math.sqrt(v / xmax) : v / xmax) * (R - L), Y = v => T + (.6 - v) / .18 * (B - T);
     el(s, 'rect', {x: L, y: T, width: X(.06) - L, height: Y(.5) - T, fill: '#12b886', 'fill-opacity': .1});
     el(s, 'rect', {x: X(.06), y: Y(.5), width: R - X(.06), height: B - Y(.5), fill: '#f03e3e', 'fill-opacity': .08});
+    // Quadrant names, as on the first version of this chart.
+    const q = (x, y, t, anchor, col) => el(s, 'text', {x, y, 'text-anchor': anchor, 'font-family': 'Unbounded, sans-serif', 'font-weight': 800, 'font-size': 20, fill: col, 'fill-opacity': .4}, t);
+    q(L + 12, T + 28, 'HIDDEN EDGE', 'start', '#12804f'); q(R - 12, T + 28, 'CONSENSUS', 'end', '#0b1838');
+    q(R - 12, B - 12, 'CROWDED · FADING', 'end', '#b42318'); q(L + 12, B - 12, 'DEAD MONEY', 'start', '#0b1838');
+    // Legend: how to read a trail in time order.
+    const lg = el(s, "g", {transform: `translate(${L},${B + 44})`});
+    el(lg, 'circle', {cx: 0, cy: 0, r: 5, fill: '#fff', stroke: '#0b1838', 'stroke-width': 2}); el(lg, 'text', {x: 10, y: 4, 'font-size': 12, 'font-weight': 600}, 'Frankfurt');
+    el(lg, 'line', {x1: 72, x2: 96, y1: 0, y2: 0, stroke: '#0b1838', 'stroke-width': 1.6});
+    el(lg, 'circle', {cx: 106, cy: 0, r: 5, fill: '#0b1838'}); el(lg, 'text', {x: 116, y: 4, 'font-size': 12, 'font-weight': 600}, 'Louisville');
+    el(lg, 'line', {x1: 184, x2: 208, y1: 0, y2: 0, stroke: '#0b1838', 'stroke-width': 1.6, 'marker-end': 'url(#a0)'});
+    el(lg, 'text', {x: 216, y: 4, 'font-size': 12, 'font-weight': 600}, 'Nice (sprite)');
     for (const v of [.44, .46, .48, .5, .52, .54, .56, .58, .6]) { el(s, 'line', {x1: L, x2: R, y1: Y(v), y2: Y(v), stroke: '#0b1838', 'stroke-opacity': v === .5 ? .45 : .1, 'stroke-width': v === .5 ? 2 : 1}); el(s, 'text', {x: L - 8, y: Y(v) + 4, 'text-anchor': 'end', class: 'm'}, Math.round(v * 100) + '%'); }
     for (const v of (spread ? [.01, .02, .04, .08, .16] : [0, .04, .08, .12, .16])) el(s, 'text', {x: X(v), y: B + 20, 'text-anchor': 'middle', class: 'm'}, Math.round(v * 100) + '%');
     el(s, 'text', {x: (L + R) / 2, y: B + 44, 'text-anchor': 'middle', 'font-weight': 700, 'font-size': 14}, '% of teams that brought it →');
@@ -64,6 +75,8 @@ Promise.all([fetch('data/plans.json').then(r => r.json()), fetch('data/cases.jso
       const p = plans[i], on = i === bwSel, q = p.share.map((v, e) => [X(v), Y(p.wr[e])]);
       el(s, 'path', {d: path(q), fill: 'none', stroke: on ? '#e09a00' : '#0b1838', 'stroke-opacity': on ? 1 : .3, 'stroke-width': on ? 4.5 : 1.6, 'marker-end': `url(#a${on ? 1 : 0})`});
       el(s, 'circle', {cx: q[0][0], cy: q[0][1], r: on ? 5 : 3, fill: '#fff', stroke: on ? '#e09a00' : '#0b1838', 'stroke-opacity': on ? 1 : .35, 'stroke-width': 2});
+      el(s, 'circle', {cx: q[1][0], cy: q[1][1], r: on ? 5 : 3, fill: on ? '#e09a00' : '#0b1838', 'fill-opacity': on ? 1 : .35});
+      if (on) { el(s, 'text', {x: q[0][0], y: q[0][1] - 10, 'text-anchor': 'middle', 'font-size': 12, 'font-weight': 700}, 'Frankfurt'); el(s, 'text', {x: q[1][0], y: q[1][1] - 10, 'text-anchor': 'middle', 'font-size': 12, 'font-weight': 700}, 'Louisville'); }
     }
     // Labels start outward from the cloud, then repel each other and every sprite; leader lines connect them.
     const anchors = plans.map(p => [X(p.share[2]), Y(p.wr[2])]);

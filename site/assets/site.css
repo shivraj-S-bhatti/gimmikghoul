@@ -59,8 +59,8 @@ nav a:hover { background: rgba(255,255,255,.85); }
 @media (prefers-reduced-motion: reduce) { .tip::after { transition: none; } }
 
 /* Speed ladder */
-.ladder { position: relative; height: 230px; background: rgba(255,255,255,.55); border-radius: 22px; overflow-x: auto; }
-.ladder .track { position: absolute; left: 24px; right: 24px; top: 190px; height: 4px; border-radius: 2px; background: rgba(11,24,56,.25); }
+.ladder { position: relative; height: 330px; background: rgba(255,255,255,.55); border-radius: 22px; overflow-x: auto; }
+.ladder .track { position: absolute; left: 24px; right: 24px; top: 300px; height: 4px; border-radius: 2px; background: rgba(11,24,56,.25); }
 .ladder .pt { position: absolute; width: 104px; display: grid; justify-items: center; gap: 2px; transform: translateX(-50%); }
 .ladder .pt b { font: 800 18px var(--display); }
 .ladder .pt span { font: 600 12px var(--body); color: var(--mute); white-space: nowrap; }
@@ -98,3 +98,6 @@ footer.glass { grid-template-columns: auto 1fr; align-items: center; }
 .tick .t img { width: 46px; height: 46px; object-fit: contain; margin-right: -16px; }
 .tick b.nm { margin-left: 18px; font: 700 15px var(--body); }
 .tick .tag { font: 600 11px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--mute); }
+
+.ladder .stem { position: absolute; width: 2px; bottom: 30px; transform: translateX(-1px); background: rgba(11,24,56,.22); }
+.ladder-wrap { overflow-x: auto; }
