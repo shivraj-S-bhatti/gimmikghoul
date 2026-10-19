@@ -44,7 +44,11 @@ p { margin: 0; max-width: 70ch; }
 .coin img { image-rendering: pixelated; width: 88%; height: 88%; object-fit: contain; }
 nav { display: flex; gap: 8px; flex-wrap: wrap; }
 nav a { color: var(--ink); text-decoration: none; font: 600 14px var(--body); background: rgba(255,255,255,.55); border: 1px solid rgba(255,255,255,.8); border-radius: 999px; padding: 10px 16px; min-height: 44px; display: inline-flex; align-items: center; }
-nav a[aria-current="page"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+nav a[aria-current="page"] { background: rgba(255,255,255,.95); color: var(--blue); border-color: #fff; box-shadow: inset 0 -3px 0 var(--gold); }
+nav a:hover { background: rgba(255,255,255,.85); }
+.hero-nav { display: flex; justify-content: flex-end; }
+.eyebrow { font: 800 18px var(--display); letter-spacing: .14em; color: var(--blue); }
+.nowrap { white-space: nowrap; }
 
 /* Tooltips: dotted underline marks anything you can hover or focus for an explanation. */
 .tip { position: relative; text-decoration: underline dotted 2px; text-underline-offset: 3px; text-decoration-color: rgba(11,24,56,.55); cursor: help; }
