@@ -3,20 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Gimmikwatch Harness</title>
+<title>Gimmikghoul Harness</title>
 <meta name="description" content="How Gimmikwatch works: an agent harness over the Showdown engine, a damage calculator, a meta pipeline and a just-in-time knowledge graph, plus the anonymised Reg M-C datasets.">
 <meta property="og:image" content="https://shivraj-s-bhatti.github.io/gimmikghoul/assets/social-preview.png">
 <link rel="icon" href="assets/favicon.png">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Figtree:wght@400;500;600;700;800&family=Martian+Mono:wght@400;600&display=swap">
-<link rel="stylesheet" href="assets/site.css?v=7">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Figtree:wght@400;500;600;700;800&family=Martian+Mono:wght@400;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="assets/site.css?v=8">
 </head>
 <body>
 <div class="wrap">
-  <div class="hero-nav"><nav aria-label="Pages"><a href="./">Report</a><a href="thesis.html">Thesis</a><a href="data.html" aria-current="page">Data &amp; harness</a><a href="https://github.com/shivraj-S-bhatti/gimmikghoul">GitHub</a></nav></div>
+  <div class="hero-nav"><nav aria-label="Pages"><a href="./">Report</a><a href="explore.html">Explore</a><a href="thesis.html">Thesis</a><a href="data.html" aria-current="page">Data &amp; harness</a><a href="https://github.com/shivraj-S-bhatti/gimmikghoul">GitHub</a></nav></div>
   <section class="glass">
     <div class="row" style="gap:22px;align-items:center">
       <span class="coin" style="width:104px;height:104px"><img src="assets/scientist.png" alt="Gimmikghoul, a Gimmighoul in a lab coat with coin spectacles"></span>
-      <div style="display:grid;gap:8px;flex:1 1 360px;min-width:0"><span class="eyebrow">GIMMIKWATCH · HARNESS</span><h1>How the agent thinks</h1></div>
+      <div style="display:grid;gap:8px;flex:1 1 360px;min-width:0"><span class="eyebrow">GIMMIKGHOUL · HARNESS</span><h1>Bounce your teambuilding ideas off it</h1><p class="sub" style="font-size:20px">It helps your favourite Pokémon find a job.</p></div>
     </div>
     <p>An agent answers a team question by running checks, not by recalling. It queries a graph of game mechanics, runs the real battle engine and damage calculator, reads what the field actually played, and writes what it finds into a small <span class="tip" tabindex="0" data-tip="A knowledge graph built for one question and kept afterwards. Its node and edge types are created as the question needs them, not designed up front.">just-in-time graph</span>. That graph is the agent's working memory: plans that take several turns become paths through it.</p>
   </section>
@@ -113,6 +113,6 @@ for step in 1 2 3 4 5 6; do npm run demo:jit -- "$step"; done        # build an 
     <p class="sub" style="font-size:13px">Gimmikghoul is a community experiment in agent-assisted teambuilding. Code and data on <a href="https://github.com/shivraj-S-bhatti/gimmikghoul">GitHub</a>.</p>
   </footer>
 </div>
-<script src="assets/bg.js?v=7"></script>
+<script src="assets/bg.js?v=8"></script>
 </body>
 </html>

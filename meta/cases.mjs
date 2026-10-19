@@ -52,3 +52,16 @@ out.megasAtNice = Object.entries(stones).filter(([, v]) => v.length >= 20).map((
 
 fs.writeFileSync(ROOT + 'site/data/cases.json', JSON.stringify(out, null, 1));
 console.log(JSON.stringify(out, null, 1).slice(0, 4000));
+
+// Review checks (Codex review, Oct 18): event splits, sensitivity to single players, per-player dots.
+const byEvent = (pred, opp) => [LOU, NICE].map(e => ({event: events[e].slug, teams: ids(t => t.event === e && pred(t)).length, ...rec(ids(t => t.event === e && pred(t)), opp)}));
+out.basculegionByEvent = Object.fromEntries([['female', t => has(t, 'Basculegion-F') && rain(t)], ['male', t => has(t, 'Basculegion') && rain(t)]].map(([k, p]) => [k, {
+  overall: byEvent(p), vsRillaboom: byEvent(p, o => has(o, 'Rillaboom')), vsIntimidate: byEvent(p, intim)}]));
+const d1 = t => t.d1;
+out.sensitivity = {
+  raichuYWithout0and8: rec(ids(t => t.event === NICE && raichu(t, 'Y') && !(t.d1[0] === 0 && t.d1[1] === 8))),
+  snarlWithoutWinner: rec(ids(t => t.event === NICE && raichu(t, 'X') && snarl(t) && t.place !== 1)),
+  raichuYTeamsWithSnarl: teams.filter(t => t.event === NICE && raichu(t, 'Y') && snarl(t)).length};
+out.playerDots = Object.fromEntries(['X', 'Y'].map(s => [s, teams.filter(t => t.event === NICE && raichu(t, s)).map(t => ({place: t.place, d1: d1(t), snarl: snarl(t)})).sort((a, b) => a.place - b.place)]));
+fs.writeFileSync(ROOT + 'site/data/cases.json', JSON.stringify(out, null, 1));
+console.log(JSON.stringify({basculegionByEvent: out.basculegionByEvent, sensitivity: out.sensitivity, playerDots: out.playerDots}));

@@ -307,5 +307,270 @@
    "l": 70,
    "pct": 56
   }
- ]
+ ],
+ "basculegionByEvent": {
+  "female": {
+   "overall": [
+    {
+     "event": "regional-louisville-2027",
+     "teams": 30,
+     "w": 137,
+     "l": 92,
+     "pct": 59.8
+    },
+    {
+     "event": "regional-nice-2027",
+     "teams": 26,
+     "w": 107,
+     "l": 97,
+     "pct": 52.5
+    }
+   ],
+   "vsRillaboom": [
+    {
+     "event": "regional-louisville-2027",
+     "teams": 30,
+     "w": 61,
+     "l": 33,
+     "pct": 64.9
+    },
+    {
+     "event": "regional-nice-2027",
+     "teams": 26,
+     "w": 48,
+     "l": 46,
+     "pct": 51.1
+    }
+   ],
+   "vsIntimidate": [
+    {
+     "event": "regional-louisville-2027",
+     "teams": 30,
+     "w": 89,
+     "l": 52,
+     "pct": 63.1
+    },
+    {
+     "event": "regional-nice-2027",
+     "teams": 26,
+     "w": 56,
+     "l": 56,
+     "pct": 50
+    }
+   ]
+  },
+  "male": {
+   "overall": [
+    {
+     "event": "regional-louisville-2027",
+     "teams": 19,
+     "w": 68,
+     "l": 68,
+     "pct": 50
+    },
+    {
+     "event": "regional-nice-2027",
+     "teams": 8,
+     "w": 28,
+     "l": 36,
+     "pct": 43.8
+    }
+   ],
+   "vsRillaboom": [
+    {
+     "event": "regional-louisville-2027",
+     "teams": 19,
+     "w": 34,
+     "l": 31,
+     "pct": 52.3
+    },
+    {
+     "event": "regional-nice-2027",
+     "teams": 8,
+     "w": 17,
+     "l": 18,
+     "pct": 48.6
+    }
+   ],
+   "vsIntimidate": [
+    {
+     "event": "regional-louisville-2027",
+     "teams": 19,
+     "w": 28,
+     "l": 41,
+     "pct": 40.6
+    },
+    {
+     "event": "regional-nice-2027",
+     "teams": 8,
+     "w": 21,
+     "l": 23,
+     "pct": 47.7
+    }
+   ]
+  }
+ },
+ "sensitivity": {
+  "raichuYWithout0and8": {
+   "w": 18,
+   "l": 20,
+   "pct": 47.4
+  },
+  "snarlWithoutWinner": {
+   "w": 22,
+   "l": 10,
+   "pct": 68.8
+  },
+  "raichuYTeamsWithSnarl": 0
+ },
+ "playerDots": {
+  "X": [
+   {
+    "place": 1,
+    "d1": [
+     7,
+     1
+    ],
+    "snarl": true
+   },
+   {
+    "place": 4,
+    "d1": [
+     7,
+     1
+    ],
+    "snarl": true
+   },
+   {
+    "place": 34,
+    "d1": [
+     6,
+     2
+    ],
+    "snarl": false
+   },
+   {
+    "place": 74,
+    "d1": [
+     6,
+     2
+    ],
+    "snarl": true
+   },
+   {
+    "place": 151,
+    "d1": [
+     5,
+     3
+    ],
+    "snarl": false
+   },
+   {
+    "place": 238,
+    "d1": [
+     5,
+     3
+    ],
+    "snarl": false
+   },
+   {
+    "place": 282,
+    "d1": [
+     5,
+     3
+    ],
+    "snarl": true
+   },
+   {
+    "place": 310,
+    "d1": [
+     4,
+     4
+    ],
+    "snarl": false
+   },
+   {
+    "place": 317,
+    "d1": [
+     4,
+     4
+    ],
+    "snarl": false
+   },
+   {
+    "place": 320,
+    "d1": [
+     4,
+     4
+    ],
+    "snarl": true
+   },
+   {
+    "place": 334,
+    "d1": [
+     4,
+     4
+    ],
+    "snarl": false
+   },
+   {
+    "place": 744,
+    "d1": [
+     2,
+     4
+    ],
+    "snarl": false
+   }
+  ],
+  "Y": [
+   {
+    "place": 336,
+    "d1": [
+     4,
+     3
+    ],
+    "snarl": false
+   },
+   {
+    "place": 344,
+    "d1": [
+     4,
+     4
+    ],
+    "snarl": false
+   },
+   {
+    "place": 376,
+    "d1": [
+     4,
+     4
+    ],
+    "snarl": false
+   },
+   {
+    "place": 474,
+    "d1": [
+     4,
+     4
+    ],
+    "snarl": false
+   },
+   {
+    "place": 695,
+    "d1": [
+     2,
+     5
+    ],
+    "snarl": false
+   },
+   {
+    "place": 862,
+    "d1": [
+     0,
+     8
+    ],
+    "snarl": false
+   }
+  ]
+ }
 }

@@ -7,21 +7,21 @@
 <meta name="description" content="The math behind Gimmikwatch: teams as documents, plans from dictionary learning, a matchup probe that splits into strength and loops, and why the meta circles.">
 <meta property="og:image" content="https://shivraj-s-bhatti.github.io/gimmikghoul/assets/social-preview.png">
 <link rel="icon" href="assets/favicon.png">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Figtree:wght@400;500;600;700;800&family=Martian+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Figtree:wght@400;500;600;700;800&family=Martian+Mono:wght@400;600&family=JetBrains+Mono:wght@400;600&display=swap">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<link rel="stylesheet" href="assets/site.css?v=7">
+<link rel="stylesheet" href="assets/site.css?v=8">
 <style>.glass p, .glass li { font-size: 17px; line-height: 1.6; } .glass ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; max-width: 70ch; }</style>
 </head>
 <body>
 <div class="wrap">
-  <div class="hero-nav"><nav aria-label="Pages"><a href="./">Report</a><a href="thesis.html" aria-current="page">Thesis</a><a href="data.html">Data &amp; harness</a><a href="https://github.com/shivraj-S-bhatti/gimmikghoul">GitHub</a></nav></div>
+  <div class="hero-nav"><nav aria-label="Pages"><a href="./">Report</a><a href="explore.html">Explore</a><a href="thesis.html" aria-current="page">Thesis</a><a href="data.html">Data &amp; harness</a><a href="https://github.com/shivraj-S-bhatti/gimmikghoul">GitHub</a></nav></div>
   <section class="glass">
     <div class="row" style="gap:22px;align-items:center"><span class="coin" style="width:104px;height:104px"><img src="assets/scientist.png" alt="Gimmikghoul, a Gimmighoul in a lab coat with coin spectacles"></span><div style="display:grid;gap:8px;flex:1 1 360px;min-width:0"><span class="eyebrow">GIMMIKWATCH · THESIS</span><h1>A metagame is a market of plans</h1></div></div>
     <p>Players copy what won last week, and they prepare for what they expect to face. So a plan's edge depends on two things: how strong it is, and who else shows up. Represent each team by the plans it runs, learn how plans do against each other from real matches, and you can say <em>why</em> a team won <em>at that event</em>, why a near-identical team didn't, and where the field left room.</p>
     <p>Three claims, each tested on 3,004 open team sheets and 12,217 decided matches from Frankfurt, Louisville and Nice (Reg M-C, 2026):</p>
     <ul>
       <li><b>Plans are learnable.</b> Sparse dictionary learning recovers 16 plans players already name: Psyspam, Perish Trap, Protect the Queen, SunRain.</li>
-      <li><b>Matchups split into a hill and a merry-go-round.</b> About 75% of the matchup signal is plain strength; 25% is rock-paper-scissors that no plan escapes.</li>
+      <li><b>Some matchups loop.</b> Raw records show rock-paper-scissors cycles among plans, so no single plan beats every other.</li>
       <li><b>"Why now" is a field shift.</b> A plan's value moves when the mix of opponents moves, and the change splits exactly into per-opponent terms.</li>
     </ul>
   </section>
@@ -48,15 +48,15 @@
     <p>Read match results off the plan activations with a pairwise logistic model:</p>
     <div class="math">$$\Pr(A \succ B) \;=\; \sigma\!\big(\, s^\top (h_A - h_B) \;+\; h_A^\top W\, h_B \,\big), \qquad W = -W^\top.$$</div>
     <p><span class="math">\(s\)</span> gives each plan one strength, like an Elo rating. The antisymmetric <span class="math">\(W\)</span> holds plan-vs-plan terms: <span class="math">\(W_{fg} > 0\)</span> means plan <span class="math">\(f\)</span> does better against <span class="math">\(g\)</span> than strength alone predicts. Antisymmetry keeps the model consistent: <span class="math">\(\Pr(A \succ B) = 1 - \Pr(B \succ A)\)</span>. Fit by L2-regularised log loss, regularisation picked by five-fold cross-validation.</p>
-    <p>Held out, the probe calls <b>53.75%</b> of match winners. A coin calls 50%. Team choice is a nudge; pilots and dice decide most games, which is why every claim here is about shifts and splits, not certainties.</p>
+    <p>Held out, the probe calls <b>53.75%</b> of match winners. A coin calls 50%. That is pooled five-fold cross-validation, not a test on a later, unseen event, and it says nothing about how much of a result the pilot caused. It does say the sheets alone carry only a little signal, which is why every claim here is about shifts and splits, not certainties.</p>
   </section>
 
   <section class="glass" id="hodge">
-    <span class="k">4 · Hill and merry-go-round</span>
-    <h2>Transitive vs cyclic</h2>
+    <span class="k">4 · Strength and loops</span>
+    <h2>Transitive vs cyclic terms</h2>
     <p>The logit splits into two parts:</p>
-    <div class="math">$$z_{AB} \;=\; \underbrace{s^\top (h_A - h_B)}_{\text{transitive}} \;+\; \underbrace{h_A^\top W h_B}_{\text{cyclic}}, \qquad \text{cyclic share} \;=\; \frac{\operatorname{Var}(z^{\text{cyc}})}{\operatorname{Var}(z^{\text{tr}}) + \operatorname{Var}(z^{\text{cyc}})} \;=\; 0.25.$$</div>
-    <p>This is the split Balduzzi and colleagues use for symmetric zero-sum games: a transitive part, a gradient you can climb, and a cyclic part with no top. The cyclic part shows up as loops that the raw records confirm. Staraptor Offense beats Tyranitar Sand (67-46), which beats Froslass Snow (39-33), which beats Staraptor Offense (59-32).</p>
+    <div class="math">$$z_{AB} \;=\; \underbrace{s^\top (h_A - h_B)}_{\text{transitive}} \;+\; \underbrace{h_A^\top W h_B}_{\text{cyclic}}, \qquad \text{cyclic share} \;=\; \frac{\operatorname{Var}(z^{\text{cyc}})}{\operatorname{Var}(z^{\text{tr}}) + \operatorname{Var}(z^{\text{cyc}})} \;\approx\; 0.25.$$</div>
+    <p>Balduzzi and colleagues separate symmetric zero-sum games into a transitive part and a cyclic part. The ratio above is only a description of this fitted model. It ignores the covariance between the two terms, and an antisymmetric term on overlapping plan activations isn't a purely cyclic component, so it doesn't say what share of wins comes from strength or from loops. The evidence for cycles is in the raw records. Staraptor Offense beats Tyranitar Sand (67-46), which beats Froslass Snow (39-33), which beats Staraptor Offense (59-32).</p>
   </section>
 
   <section class="glass">
@@ -83,7 +83,7 @@
     <p>Treat plans as pure strategies in the symmetric zero-sum game <span class="math">\(G = \tfrac12 (P - P^\top)\)</span>. Regret matching in self-play, with the time-averaged strategy, approaches an equilibrium mix <span class="math">\(x^{\ast}\)</span>. The gap <span class="math">\(x^{\ast}_a - f_a\)</span> marks plans the field under-played. Mega Gengar's Perish Trap was the clearest at Nice: 59.5% on Day 1, from 6% of teams.</p>
     <p>The field's week-to-week movement looks like replicator dynamics,</p>
     <div class="math">$$\dot f_a \;=\; f_a\,\big(V_a(f) - \bar V(f)\big), \qquad \bar V(f) = \textstyle\sum_a f_a V_a(f).$$</div>
-    <p>On the transitive part this behaves like gradient ascent: shares flow toward stronger plans. On the cyclic part it orbits instead of converging. With a 25% cyclic share, expect the meta to climb, then circle.</p>
+    <p>On the transitive part this behaves like gradient ascent: shares flow toward stronger plans. Where real cycles exist, it can orbit instead of settling. Three events are too few to tell which of the two the Reg M-C field is doing.</p>
   </section>
 
   <section class="glass">
@@ -93,7 +93,9 @@
       <li>Every report number is recomputed from the published dataset by <code>meta/cases.mjs</code>. Mechanics (Electric Seed, terrain blocking sleep, Lightning Rod) are re-run in the pinned Showdown Champions engine by <code>meta/mechanics.cjs</code>.</li>
       <li>Patching Raichu X to Raichu Y on the winning team doesn't move the probe. It averages Raichu Y over its 236 other teams. The Raichu story rests on matched teams and engine checks, not the probe.</li>
       <li>Leads, which four were brought, the Mega used each game, and stat spreads aren't in open sheets.</li>
-      <li>Samples are small where it matters: 18 players ran the exact six.</li>
+      <li>Samples are small where it matters: 18 players ran the exact six, and removing one 0-8 entry moves Raichu Y from 39.1% to 47.4%.</li>
+      <li>The next test: fit on Frankfurt and Louisville only, then score Nice without refitting, against a coin and a species-only model.</li>
+      <li>Numbers were cross-checked in an independent Codex review, which also found the corrections above.</li>
     </ul>
   </section>
 
@@ -104,6 +106,6 @@
 </div>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
-<script src="assets/bg.js?v=7"></script>
+<script src="assets/bg.js?v=8"></script>
 </body>
 </html>

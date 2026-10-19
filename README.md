@@ -12,17 +12,25 @@ The ambition is a shared reasoning canvas: people and agents build conditional p
 
 ## Gimmikwatch: the Reg M-C meta as a market of plans
 
-**[Read the report](https://shivraj-s-bhatti.github.io/gimmikghoul/)** · [Thesis and math](https://shivraj-s-bhatti.github.io/gimmikghoul/thesis.html) · [Data and harness](https://shivraj-s-bhatti.github.io/gimmikghoul/data.html)
+**[Read the report](https://shivraj-s-bhatti.github.io/gimmikghoul/)** · [Explore the charts](https://shivraj-s-bhatti.github.io/gimmikghoul/explore.html) · [Thesis and math](https://shivraj-s-bhatti.github.io/gimmikghoul/thesis.html) · [Harness and data](https://shivraj-s-bhatti.github.io/gimmikghoul/data.html)
 
-Why the same six Pokémon went 15-2 and 0-8 at Nice Regionals 2027, read through 3,004 anonymised open team sheets from Frankfurt, Louisville and Nice. Dictionary learning finds 16 plans players already name. A matchup probe splits into 75% strength and 25% rock-paper-scissors. A plan's change in value between events splits exactly into per-opponent terms.
+Why the same six Pokémon went 15-2 and 0-8 at Nice Regionals (2027 season, October 2026), read through 3,004 anonymised open team sheets from Frankfurt, Louisville and Nice. Dictionary learning finds 16 plans players already name. Match records show which plans beat which, including rock-paper-scissors cycles. A plan's change in value between events splits exactly into per-opponent terms, which is how "why now" gets answered.
 
 ```sh
-node meta/events.mjs                                                   # normalise + anonymise sheets
-uv run --with numpy --with scikit-learn python -I meta/plans.py        # plans, probe, loops, map
-node meta/cases.mjs && node meta/mechanics.cjs                         # report numbers, engine checks
+npm ci && npm run prepare:data                                       # pinned Showdown Champions engine
+node meta/events.mjs                                                 # normalise and anonymise sheets
+uv run --with numpy --with scikit-learn python -I meta/plans.py      # plans, matchup model, cycles, map
+node meta/cases.mjs && node meta/mechanics.cjs                       # every report number, engine checks
 ```
 
-The site lives in [`site/`](site/) and deploys to GitHub Pages on push.
+| Path | What it is |
+|---|---|
+| [`meta/`](meta/) | The harness: events → plans → cases → mechanics |
+| [`site/`](site/) | The static site, deployed to GitHub Pages on push |
+| [`site/data/`](site/data/) | Anonymised teams and matches (CSV, JSON), learned plans, report numbers |
+| [`workbench/jit/`](workbench/jit/) | The just-in-time idea graph in FalkorDB |
+
+The numbers were cross-checked in an independent Codex review, which also caught claims the data couldn't support (they're corrected on the site). Limits: Day 1 records only for most comparisons, small samples for the exact six (18 players), and no leads, brought four, spreads or turn logs in open sheets.
 
 ## Where we are
 

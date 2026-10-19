@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gimmikwatch Explore</title>
+<meta name="description" content="Interactive views of the Reg M-C meta: every team on one map, plans by crowding and win rate, Megas, the tape, the meta river, matchup cycles.">
+<meta property="og:image" content="https://shivraj-s-bhatti.github.io/gimmikghoul/assets/social-preview.png">
+<link rel="icon" href="assets/favicon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Figtree:wght@400;500;600;700;800&family=Martian+Mono:wght@400;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="assets/site.css?v=8">
+</head>
+<body>
+<div class="wrap">
+  <div class="hero-nav"><nav aria-label="Pages"><a href="./">Report</a><a href="explore.html" aria-current="page">Explore</a><a href="thesis.html">Thesis</a><a href="data.html">Data &amp; harness</a><a href="https://github.com/shivraj-S-bhatti/gimmikghoul">GitHub</a></nav></div>
+
+  <section class="glass">
+    <div class="row" style="gap:22px;align-items:center">
+      <span class="coin" style="width:104px;height:104px"><img src="assets/scientist.png" alt="Gimmikghoul, a Gimmighoul in a lab coat with coin spectacles"></span>
+      <div style="display:grid;gap:8px;flex:1 1 360px;min-width:0"><span class="eyebrow">GIMMIKWATCH · EXPLORE</span><h1>The meta, up close</h1></div>
+    </div>
+    <p>Sixteen <span class="tip" tabindex="0" data-tip="Learned from the sheets by dictionary learning: reusable sets of Pokémon, items, moves and mechanics. Named the way players name them.">plans</span> across Frankfurt, Louisville and Nice (2027 season, Sep–Oct 2026). Every chart reads the same <a href="data.html">published data</a>. Tap things.</p>
+  </section>
+
+  <section class="glass" id="galaxy">
+    <div class="row" style="justify-content:space-between"><div><span class="k">Meta Galaxy · one dot per team</span><h2>Close dots run the same plan</h2></div>
+      <div class="seg" role="group" aria-label="Event" id="galaxyEvents"></div></div>
+    <div class="vis"><svg id="galaxySvg" viewBox="0 0 1000 640" role="img" aria-label="Map of every team, coloured by plan"></svg></div>
+  </section>
+
+  <section class="glass" id="bandwagon">
+    <div class="row" style="justify-content:space-between"><div><span class="k">Bandwagon Map · Frankfurt → Louisville → Nice</span><h2>Crowding vs winning</h2></div>
+      <div class="seg" role="group" aria-label="Layout" id="bwModes"></div></div>
+    <div class="vis"><svg id="bwSvg" viewBox="0 0 1000 640" role="img" aria-label="Share of teams against Day 1 win rate for each plan over three events"></svg></div>
+    <div class="tile" id="bwRead"></div>
+  </section>
+
+  <div class="grid2">
+    <section class="glass" id="target">
+      <span class="k">Megas at Nice</span><h2>Target on your back</h2>
+      <div class="vis"><svg id="targetSvg" viewBox="0 0 600 460" role="img" aria-label="Teams per Mega against Day 1 win rate at Nice"></svg></div>
+      <p class="sub">More teams bring it, more teams prep for it. Raichu Y and Raichu X are ringed.</p>
+    </section>
+    <section class="glass" id="cycles">
+      <span class="k">All rounds, three events</span><h2>Observed matchup cycles</h2>
+      <div class="vis"><svg id="cycleSvg" viewBox="0 0 600 460" role="img" aria-label="A three-way matchup cycle"></svg></div>
+      <div class="seg" role="group" aria-label="Cycle" id="cycleTabs"></div>
+    </section>
+  </div>
+
+  <section class="glass" id="river">
+    <span class="k">Share of teams per plan</span><h2>Meta River</h2>
+    <div class="vis"><svg id="riverSvg" viewBox="0 0 1000 560" role="img" aria-label="Streamgraph of plan shares across three events"></svg></div>
+  </section>
+
+  <section class="glass" id="tape">
+    <span class="k">Biggest at Nice first · Day 1 win rate over three events</span><h2>The Tape</h2>
+    <div class="tape" id="tapeGrid"></div>
+  </section>
+
+  <footer class="glass">
+    <span class="coin" style="width:64px;height:64px"><img src="assets/scientist.png" alt=""></span>
+    <p class="sub" style="font-size:13px">Plans and map: <code>meta/plans.py</code>. Megas: <code>meta/cases.mjs</code>. Win rates are Day 1 match records unless a chart says all rounds. Pairs of numbers like 67-46 are wins-losses.</p>
+  </footer>
+</div>
+<script src="assets/explore.js?v=8"></script>
+<script src="assets/bg.js?v=8"></script>
+</body>
+</html>
