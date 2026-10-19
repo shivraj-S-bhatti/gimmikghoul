@@ -10,6 +10,7 @@ html { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.35) transparent
 ::-webkit-scrollbar { width: 8px; height: 8px; background: transparent; }
 ::-webkit-scrollbar-track, ::-webkit-scrollbar-corner { background: transparent; }
 ::-webkit-scrollbar-thumb { background: rgba(255,255,255,.35); border-radius: 4px; }
+html, body { overflow-x: clip; }
 body { margin: 0; color: var(--ink); font: 16px/1.5 var(--body); background: var(--blue); }
 a { color: var(--blue); }
 a:focus-visible, button:focus-visible, .tip:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; border-radius: 4px; }
@@ -69,12 +70,39 @@ nav a:hover { background: rgba(255,255,255,.85); }
 table { border-collapse: collapse; width: 100%; font-size: 15px; }
 th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid rgba(11,24,56,.12); vertical-align: middle; }
 th { font: 600 12px var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--mute); }
-.scroll { overflow-x: auto; }
+.scroll { overflow-x: auto; min-width: 0; max-width: 100%; }
 code, pre { font-family: "JetBrains Mono", ui-monospace, Menlo, monospace; font-size: 13px; }
 pre { background: rgba(11,24,56,.88); color: #e8edff; border-radius: 16px; padding: 16px; overflow-x: auto; margin: 0; }
 .math { overflow-x: auto; padding: 4px 0; }
 footer.glass { grid-template-columns: auto 1fr; align-items: center; }
-@media (max-width: 640px) { .mons img { width: 48px; height: 48px; } footer.glass { grid-template-columns: 1fr; } }
+@media (max-width: 640px) {
+  body { font-size: 15px; }
+  .wrap { gap: 18px; padding-block: 16px 48px; }
+  .glass { border-radius: 24px; gap: 14px; }
+  .tile { padding: 12px 14px; border-radius: 18px; }
+  h1 { font-size: clamp(26px, 8vw, 34px); }
+  h2 { font-size: clamp(20px, 6vw, 24px); }
+  h3 { font-size: 17px; }
+  .big { font-size: 26px; }
+  .big[style*="64px"] { font-size: 40px !important; }
+  .big[style*="28px"] { font-size: 19px !important; }
+  .k { font-size: 10.5px; }
+  .num { font-size: 13px; }
+  .eyebrow { font-size: 14px; }
+  .coin[style] { width: 64px !important; height: 64px !important; }
+  .mons { flex-wrap: nowrap; gap: 0; }
+  .mons img { width: 40px; height: 40px; }
+  .sp { width: 44px; height: 44px; }
+  .sp-l { width: 60px; height: 60px; }
+  .sp-s { width: 34px; height: 34px; }
+  .tick .t img { width: 34px; height: 34px; margin-right: -12px; }
+  nav a { font-size: 13px; padding: 8px 12px; }
+  .seg button { font-size: 13px; padding: 8px 12px; }
+  table { font-size: 13px; }
+  th, td { padding: 8px 6px; }
+  footer.glass { grid-template-columns: 1fr; }
+  .tile.row { flex-wrap: nowrap; }
+}
 
 /* Architecture diagrams: dark glass, mono, accent outlines */
 .diagram { background: rgba(10,20,52,.9); color: #dde5ff; border: 1px solid rgba(255,255,255,.18); border-radius: 18px; padding: 20px 22px; line-height: 1.55; font-size: 13px; }
