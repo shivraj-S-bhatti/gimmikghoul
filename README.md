@@ -80,6 +80,6 @@ We can build and use one useful loop at a time. See the [vision](docs/VISION.md)
 
 ## Origins and credits
 
-This project grew out of [Pokémon battle lab](https://github.com/shivraj-S-bhatti/pokemon-battle-lab/tree/6e9aa7d76643d6af3974023d902a647db48a9502). The [import manifest](research/IMPORT_MANIFEST.md) records the starting revision and copied files. The demo attributes its seed team to London Faust, presented by Aaron Zheng. Its source locator is incomplete; finding the exact public video is an open contribution.
+The demo attributes its seed team to London Faust, presented by Aaron Zheng. Its source locator is incomplete; finding the exact public video is an open contribution.
 
 We reuse Pokémon Showdown, Smogon's calculator and FalkorDB. Research references and executable dependencies are distinguished in the [citation tree](research/CITATION_TREE.md). Pokémon names and artwork belong to their respective owners; this is an independent fan research project. See [asset attribution](brand/ATTRIBUTION.md).
